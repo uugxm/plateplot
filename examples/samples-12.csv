@@ -1,0 +1,13 @@
+well,sample_name,group,concentration,concentration_unit,fill_color
+A1,S001,Control,0,µM,
+A2,S002,Control,0,µM,
+A3,S003,Treatment A,15,µM,
+A4,S004,Treatment B,20,µM,
+B1,S005,Control,0,µM,
+B2,S006,Control,0,µM,
+B3,S007,Treatment A,5,µM,
+B4,S008,Treatment B,10,µM,
+C1,S009,Control,0,µM,
+C2,S010,Control,0,µM,
+C3,S011,Treatment A,25,µM,
+C4,S012,Treatment B,30,µM,

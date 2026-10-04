@@ -1,7 +1,147 @@
 # PlatePlot
 
-Python tooling for configurable well plate diagrams with sample labels, colors,
-concentrations, and vector SVG/PDF output.
+用 Python 绘制可配置的孔板示意图，输出可编辑的 **SVG** 和用于打印、排版的
+**矢量 PDF**。支持 **12 / 24 / 48 / 96 / 384 孔板**，每孔可显示样品名称、浓度、
+自定义文字，并按分组、浓度或手动颜色填色。
 
-The initial implementation is developed on a review branch. This default branch
-is the repository scaffold; see open pull requests for runnable code.
+![96 孔板示例](examples/figures/plate-96.svg)
+
+## 安装与快速使用
+
+需要 Python 3.10 或以上。初始 PR 合并前，使用实现分支：
+
+```bash
+git clone --branch codex/initial-implementation https://github.com/uugxm/plateplot.git
+cd plateplot
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install .
+
+plateplot draw --template 96 --data examples/samples-96.csv --output output/plate.svg
+plateplot draw --template 96 --data examples/samples-96.csv --output output/plate.pdf
+```
+
+Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
+仓库当前版本为 `0.1.0a1`。初始 PR 合并前，默认分支只包含初始化文件。
+
+## Python API
+
+```python
+from plateplot import draw_plate
+
+result = draw_plate(
+    template=96,  # 内置板型，或自定义 JSON 文件路径
+    data="examples/samples-96.csv",  # 也可使用 WellData 或字典的列表
+    output="output/plate.svg",
+    label_fields=["sample_name", "concentration"],
+    color_by="group",
+    mode="annotation",
+)
+print(result.path, result.notices)
+```
+
+如果已有 pandas DataFrame，使用 `data=df.to_dict("records")`。
+API 导出文件并返回页面尺寸、实际缩放比例、每孔字号以及排版提示，不启动图形窗口。
+
+## 每孔数据
+
+CSV 每孔一行，`well` 必填；其余列可留空。只提供已使用的孔位即可，其余孔仍会绘制。
+
+```csv
+well,sample_name,group,concentration,concentration_unit,fill_color,label
+A1,Sample-01,Control,0,µM,,
+A2,Sample-02,Treatment,5,µM,,
+A3,Sample-03,Treatment,10,µM,#FDB462,Custom label
+```
+
+- `A01`、`a1` 会统一为 `A1`，统一后重复或超出板型范围的孔位会报错。
+- 浓度数值与单位分别保存，显示时合并成 `5 µM`；空浓度保持空白。
+- 支持 UTF-8 / UTF-8 BOM，以及带引号的逗号、多行文字。
+- 支持额外文字列，例如 `note`，可用 `--labels note` 显示。
+- 浓度必须是有限、非负数。浓度填色要求数据使用一致单位；工具不自动换算单位。
+
+生成空白数据表：
+
+```bash
+plateplot blank-csv 384 samples.csv
+```
+
+## 尺寸模板
+
+**内置 `generic-*` 模板均为示意尺寸，不代表某个厂家或货号。**
+输出图底部及 CLI 会标明 `Illustrative`。实际尺寸图请使用厂家图纸或实测数据建立模板。
+同样孔数的产品，孔径、边缘距离等不一定相同。
+
+所有长度统一为 **mm**，左上角为坐标原点，A1 在左上方。模板包含板宽、板高、
+孔口直径、A1 中心距左/上板边的距离、横/纵孔中心距和圆角半径。
+可另外保存孔底直径；当前俯视图使用孔口直径绘制。
+
+```bash
+plateplot templates
+plateplot export-template 96 my-plate.json
+# 编辑 my-plate.json 的尺寸、厂家、货号、source 等字段
+plateplot draw --template my-plate.json --output output/my-plate.svg
+```
+
+模板校验包括单位、正数、有限数、孔间重叠及孔是否越过外框。
+模板来源支持 `illustrative` / `manufacturer` / `measured`，保存 URL、核验日期和说明。
+来源分类是录入者的声明，程序不能替代对图纸或实测结果的核验。
+详见 [模板字段说明](docs/templates.md)。
+
+## 填色与文字
+
+```bash
+# 浓度色阶与矢量色条
+plateplot draw --template 96 --data examples/samples-96.csv \
+  --color-by concentration --output output/concentration.svg
+
+# 手动颜色；也可 --color-by none 关闭全部填色
+plateplot draw --template 96 --data examples/samples-96.csv \
+  --color-by fill_color --labels label --output output/manual.svg
+
+# 384 孔只显示短样品编号
+plateplot draw --template 384 --data examples/samples-384.csv \
+  --labels sample_name --output output/384.svg
+```
+
+分组颜色按组名排序分配，输入行顺序不改变颜色。跨实验需要固定颜色时，用
+`--palette palette.json`，文件内容为 `{"Control": "#D9D9D9", "Treatment": "#80B1D3"}`。
+超过 8 个分组时必须显式指定各组颜色。手动 `fill_color` 优先于自动分组/浓度填色，
+图例会显示实际使用的分组颜色或手动颜色。
+
+标签会按实际字体测量自动换行、缩小字号。仍无法容纳时默认报错，建议增加
+`--scale`、减少 `--labels` 字段或使用短编号。`--overflow warn` 会警告并省略整个
+无法容纳的标签，不会截断浓度或样品名。低于 6 pt 的文字会出现在提示中。
+
+## 物理尺寸与字体
+
+- `annotation`：默认整体放大 2 倍，384 孔放大 3 倍，可指定 `--scale`。
+- `physical`：固定 1:1；加 `--dimensions` 显示外框尺寸。
+  PDF 的页面包含外围标题、行列号和图例，但板子本身按模板毫米尺寸绘制。
+- SVG 明确设置毫米页面尺寸；PDF 明确设置物理页面尺寸。打印时选择 **实际大小 / 100%**，
+  关闭“适应页面”。
+- 当前支持圆孔和圆角矩形外框的俯视示意；厂家定位缺角、筋条、孔壁及三维结构不在第一版中。
+- SVG 默认保留可编辑文字，跨设备需安装相应字体。`--svg-text path` 把文字转为矢量路径。
+  PDF 嵌入字体子集。字体和标注不使用位图；连续色条由矢量矩形组成。
+
+程序优先使用系统中可用的中英文字体。Linux 如需中文，请安装 Noto Sans CJK 或指定
+`--font-file /path/to/font.ttf`；Python 参数是 `font_path`。发现缺字会报错并指出字符。
+
+## 示例与开发
+
+所有示例数据都是虚构数据，可直接运行并复现：
+
+```bash
+python -m pip install -e '.[dev]'
+python examples/generate.py
+pytest -q
+ruff check .
+ruff format --check .
+python -m build
+```
+
+示例包括五种板型、96 孔 PDF、1:1 SVG 和浓度填色 SVG。
+测试核对输出文件中的几何尺寸、孔位数、SVG 文字/路径选项、矢量输出、CSV 校验和 CLI。
+CI 在 Python 3.10 / 3.12 上运行。
+
+许可证：[MIT](LICENSE)。
