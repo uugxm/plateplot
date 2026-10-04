@@ -1,6 +1,7 @@
 # 孔板尺寸模板
 
-模板使用 JSON，schema 版本为 1，长度单位固定为 mm。内置模板均为示意配置。
+模板使用 JSON，schema 版本为 1，长度单位固定为 mm。`generic-*` 模板为示意配置；
+`nunc-167008` / `nunc-161093` 来自用户提供的厂家尺寸图纸。
 数据文件单独存样品信息，不写进几何模板。
 
 | 字段 | 意义 |
@@ -15,13 +16,18 @@
 | `width_mm` / `height_mm` | 绘制的板子外框宽度与高度 |
 | `well_diameter_mm` | 当前绘制的孔口直径 |
 | `well_bottom_diameter_mm` | 可选孔底直径；用于保存数据，当前不参与俯视图绘制 |
+| `well_outer_diameter_mm` | 可选孔外径；用于保存数据，当前不参与绘制 |
+| `plate_height_mm` / `well_depth_mm` | 可选板高/孔深；保存三维尺寸，当前不参与俯视图绘制 |
 | `pitch_x_mm` / `pitch_y_mm` | 横向/纵向孔中心距 |
 | `a1_x_mm` / `a1_y_mm` | A1 中心距左/上板边的距离 |
 | `corner_radius_mm` | 外框圆角半径；`0` 表示直角 |
+| `outline_simplified` | 可选布尔值；外框细节被简化时设为 `true`，输出显示提示 |
 | `source.kind` | `illustrative`、`manufacturer` 或 `measured` |
 | `source.url` | 来源 URL；厂家模板必填 |
 | `source.checked_on` | 非示意模板必须填核验日期，建议 `YYYY-MM-DD` |
 | `source.notes` | 来源版本、测量方式、几何简化或其他说明 |
+| `source.document_name` / `source.document_sha256` | 可选来源文件名及完整 SHA-256，用于核对原始附件 |
+| `source.drawing_number` / `source.drawing_version` / `source.page` | 可选图号、版本和页码，均为字符串 |
 
 孔位从 A1 开始，行向下增加，列向右增加。第 r 行、第 c 列（零起始）的中心：
 

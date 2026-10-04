@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0a2 - 2026-10-05
+
+- Add Nunc 167008 / 161093 templates from supplied drawing 2817 version 10.
+- Preserve the asymmetric grid datum: H-row bottom margin 11.3 mm gives A1 top margin 11.18 mm.
+- Store distinct opening, bottom and outer well diameters, plate height and well depth.
+- Add document SHA-256/drawing provenance and explicit simplified-outline notices.
+- Add manufacturer-specific vector examples and geometry regression coverage.
+
 ## 0.1.0a1 - 2026-10-05
 
 - Add illustrative 12/24/48/96/384 plate templates and validated custom JSON geometry.

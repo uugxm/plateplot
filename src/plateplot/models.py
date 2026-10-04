@@ -48,6 +48,11 @@ class TemplateSource:
     url: str = ""
     checked_on: str = ""
     notes: str = "Not verified against a physical product."
+    document_name: str = ""
+    document_sha256: str = ""
+    drawing_number: str = ""
+    drawing_version: str = ""
+    page: str = ""
 
     def __post_init__(self):
         if self.kind not in {"illustrative", "manufacturer", "measured"}:
@@ -59,6 +64,8 @@ class TemplateSource:
         for item in fields(self):
             if not isinstance(getattr(self, item.name), str):
                 raise ValueError(f"source.{item.name} must be text")
+        if self.document_sha256 and not re.fullmatch(r"[0-9a-f]{64}", self.document_sha256):
+            raise ValueError("source.document_sha256 must be 64 lowercase hexadecimal characters")
 
 
 @dataclass(frozen=True)
@@ -81,6 +88,10 @@ class PlateTemplate:
     catalog_number: str = ""
     corner_radius_mm: float = 3.0
     well_bottom_diameter_mm: float | None = None
+    plate_height_mm: float | None = None
+    well_depth_mm: float | None = None
+    well_outer_diameter_mm: float | None = None
+    outline_simplified: bool = False
     source: TemplateSource = field(default_factory=TemplateSource)
 
     def __post_init__(self):
@@ -95,6 +106,8 @@ class PlateTemplate:
                 raise ValueError(f"{name} must be text")
         if not isinstance(self.source, TemplateSource):
             raise ValueError("source must be a TemplateSource")
+        if type(self.outline_simplified) is not bool:
+            raise ValueError("outline_simplified must be a boolean")
         for name in ("rows", "columns"):
             value = getattr(self, name)
             if isinstance(value, bool) or not isinstance(value, int) or value < 1:
@@ -105,14 +118,16 @@ class PlateTemplate:
             object.__setattr__(self, name, finite_number(getattr(self, name), name, positive=True))
         for name in ("a1_x_mm", "a1_y_mm", "corner_radius_mm"):
             object.__setattr__(self, name, finite_number(getattr(self, name), name))
-        if self.well_bottom_diameter_mm is not None:
-            object.__setattr__(
-                self,
-                "well_bottom_diameter_mm",
-                finite_number(
-                    self.well_bottom_diameter_mm, "well_bottom_diameter_mm", positive=True
-                ),
-            )
+        for name in (
+            "well_bottom_diameter_mm",
+            "plate_height_mm",
+            "well_depth_mm",
+            "well_outer_diameter_mm",
+        ):
+            if getattr(self, name) is not None:
+                object.__setattr__(
+                    self, name, finite_number(getattr(self, name), name, positive=True)
+                )
         radius = self.well_diameter_mm / 2
         corner = self.corner_radius_mm
         if corner > min(self.width_mm, self.height_mm) / 2:

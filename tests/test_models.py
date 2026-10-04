@@ -96,6 +96,52 @@ def test_addresses():
         "generic-384",
         "generic-48",
         "generic-96",
+        "nunc-161093",
+        "nunc-167008",
     ]
     with pytest.raises(ValueError):
         TemplateSource(kind="manufacturer", url="https://example.org")
+
+
+@pytest.mark.parametrize("catalog", ["167008", "161093"])
+def test_nunc_drawing_2817_v10(catalog, tmp_path):
+    template = load_template(f"nunc-{catalog}")
+    assert template.catalog_number == catalog
+    assert template.well_count == 96
+    assert (template.width_mm, template.height_mm) == (127.76, 85.48)
+    assert template.well_diameter_mm == 6.97
+    assert template.well_bottom_diameter_mm == 6.17
+    assert template.well_outer_diameter_mm == 8.4
+    assert template.plate_height_mm == 14.4
+    assert template.well_depth_mm == 11.4
+    assert (template.pitch_x_mm, template.pitch_y_mm) == (9, 9)
+    assert template.center("A1") == pytest.approx((14.3, 11.18))
+    assert template.center("H12") == pytest.approx((113.3, 74.18))
+    assert template.height_mm - template.center("H1")[1] == pytest.approx(11.3)
+    assert template.width_mm - template.center("A12")[0] == pytest.approx(14.46)
+    assert template.source.kind == "manufacturer"
+    assert template.source.drawing_number == "2817"
+    assert template.source.drawing_version == "10"
+    assert template.source.document_sha256 == (
+        "a042684dec585378c7772da1cee73c391e43825450c2e9b561ebc1657114c122"
+    )
+    assert template.outline_simplified
+    assert template.corner_radius_mm == 0
+    assert load_template(template.save(tmp_path / "roundtrip.json")) == template
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        {"plate_height_mm": -1},
+        {"well_depth_mm": float("nan")},
+        {"well_outer_diameter_mm": 0},
+        {"outline_simplified": "yes"},
+        {"source": {"document_sha256": "bad"}},
+    ],
+)
+def test_invalid_additional_geometry(change):
+    value = load_template(96).to_dict()
+    value.update(change)
+    with pytest.raises(ValueError):
+        PlateTemplate.from_dict(value)

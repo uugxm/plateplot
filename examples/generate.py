@@ -47,6 +47,16 @@ def main():
     draw_plate(
         96, records(96), output=figures / "plate-96-concentration.svg", color_by="concentration"
     )
+    for catalog in ("167008", "161093"):
+        template = f"nunc-{catalog}"
+        draw_plate(template, records(96), output=figures / f"{template}.svg")
+        draw_plate(
+            template,
+            output=figures / f"{template}-physical.svg",
+            mode="physical",
+            show_dimensions=True,
+        )
+    draw_plate("nunc-167008", records(96), output=figures / "nunc-167008.pdf")
     print(f"Synthetic examples generated in {figures}")
 
 

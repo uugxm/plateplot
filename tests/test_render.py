@@ -38,8 +38,9 @@ def test_all_wells_vector_and_editable_text(tmp_path, count):
 
 
 @pytest.mark.parametrize("scale", [1, 2.5])
-def test_physical_geometry_in_svg(tmp_path, scale):
-    template = load_template(96)
+@pytest.mark.parametrize("name", [96, "nunc-167008", "nunc-161093"])
+def test_physical_geometry_in_svg(tmp_path, scale, name):
+    template = load_template(name)
     result = draw_plate(
         template,
         output=tmp_path / "plate.svg",
@@ -63,6 +64,14 @@ def test_physical_geometry_in_svg(tmp_path, scale):
     assert (y0 + y1) / 2 - oy0 == pytest.approx(template.a1_y_mm * factor, abs=1e-5)
     view_width = float(root.get("viewBox").split()[2])
     assert view_width == pytest.approx(result.width_mm * 72 / 25.4, abs=1e-5)
+
+
+def test_manufacturer_outline_notice_is_visible(tmp_path):
+    result = draw_plate("nunc-167008", output=tmp_path / "plate.svg")
+    root = ET.parse(result.path).getroot()
+    assert "simplified outline" in " ".join(root.itertext())
+    assert any("Outline simplified" in notice for notice in result.notices)
+    assert not any("Illustrative" in notice for notice in result.notices)
 
 
 def test_pdf_scale_and_no_raster_images(tmp_path):

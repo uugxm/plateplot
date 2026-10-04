@@ -299,10 +299,14 @@ def draw_plate(
     notices = []
     if template.source.kind == "illustrative":
         notices.append("Illustrative template: dimensions are not verified against a product.")
+    if template.outline_simplified:
+        notices.append("Outline simplified: outer corner/chamfer details are not represented.")
     footer = (
         f"{template.source.kind.capitalize()} dimensions | "
         f"{template.template_id} @ {template.version} | circular top-view schematic"
     )
+    if template.outline_simplified:
+        footer = footer.replace("circular top-view schematic", "simplified outline")
     subtitle = (
         f"{template.rows} x {template.columns} | "
         f"{template.width_mm:g} x {template.height_mm:g} mm | "
