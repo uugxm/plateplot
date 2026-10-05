@@ -108,6 +108,9 @@ def test_addresses():
         "generic-384",
         "generic-48",
         "generic-96",
+        "nunc-140675-schematic",
+        "nunc-142485",
+        "nunc-144530",
         "nunc-161093",
         "nunc-167008",
     ]
@@ -157,3 +160,45 @@ def test_invalid_additional_geometry(change):
     value.update(change)
     with pytest.raises(ValueError):
         PlateTemplate.from_dict(value)
+
+
+def test_nunc_6_measured_contours(tmp_path):
+    template = load_template(6)
+    assert template == load_template("cell-culture-6")
+    assert template.well_count == 6
+    assert template.wells()[-1] == "B3"
+    assert (template.width_mm, template.height_mm) == (127.76, 85.46)
+    assert template.well_diameter_mm == 34.6
+    assert template.center("A1") == pytest.approx((23.9, 22.7))
+    assert template.center("B3") == pytest.approx((103.9, 62.7))
+    assert template.source.page == "2"
+    assert template.source.drawing_number == "3223"
+    assert template.source.drawing_version == "10-a"
+    assert len(template.assumed_fields) == 5
+    assert load_template(template.save(tmp_path / "six.json")) == template
+
+
+@pytest.mark.parametrize("catalog", ["142485", "144530"])
+def test_nunc_24_document_dimensions(catalog):
+    template = load_template(f"nunc-{catalog}")
+    assert template.well_count == 24
+    assert template.wells()[-1] == "D6"
+    assert (template.width_mm, template.height_mm) == (127.5, 85.3)
+    assert template.well_diameter_mm == 16.3
+    assert template.well_bottom_diameter_mm == 15.5
+    assert template.well_depth_mm == 15.7
+    assert template.plate_height_mm == 18.8
+    assert (template.pitch_x_mm, template.pitch_y_mm) == (19.6, 19.6)
+    assert template.center("A1") == pytest.approx((14.75, 13.25))
+    assert template.center("D6") == pytest.approx((112.75, 72.05))
+    assert template.assumed_fields == ("a1_x_mm", "a1_y_mm")
+    assert template.source.drawing_version == "0508"
+    assert load_template("cell-culture-24") == load_template("nunc-142485")
+
+
+@pytest.mark.parametrize("value", ["a1_x_mm", ["diameter"], [1], ["a1_x_mm", "a1_x_mm"]])
+def test_assumed_fields_validation(value):
+    data = load_template(96).to_dict()
+    data["assumed_fields"] = value
+    with pytest.raises(ValueError, match="assumed_fields"):
+        PlateTemplate.from_dict(data)

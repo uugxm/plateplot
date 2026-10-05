@@ -25,6 +25,7 @@
 | `a1_x_mm` / `a1_y_mm` | A1 中心距左/上板边的距离 |
 | `corner_radius_mm` | 外框圆角半径；`0` 表示直角 |
 | `outline_simplified` | 可选布尔值；外框细节被简化时设为 `true`，输出显示提示 |
+| `assumed_fields` | 可选几何字段名列表；记录图纸测量估算、居中假设等未由厂家标注确认的值，输出提示并在文件元数据中保留 |
 | `source.kind` | `illustrative`、`manufacturer` 或 `measured` |
 | `source.url` | 来源 URL；厂家模板必填 |
 | `source.checked_on` | 非示意模板必须填核验日期，建议 `YYYY-MM-DD` |

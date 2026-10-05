@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0a8 - 2026-10-05
+
+- Add Nunc 140675 six-well and 142485 / 144530 twenty-four-well templates and blank SVG/PDF examples.
+- Calibrate and measure MD6 vector contours as user-authorized estimates, with a reproducible recipe and measurement report.
+- Record unspecified geometry in assumed_fields and preserve the 24-well sheet's conflicting well-count table in documentation.
+- Retain generic-24 and the existing default 96-well template.
+
 ## 0.1.0a7 - 2026-10-05
 
 - Move scale-bar text closer to the bar using measured text bounds.

@@ -63,6 +63,16 @@ def main():
         color_by="none",
         show_legend=False,
     )
+    for count, template in [(6, "nunc-140675-schematic"), (24, "nunc-142485")]:
+        for extension in ("svg", "pdf"):
+            draw_plate(
+                template,
+                output=figures / f"{count}-cell-culture-blank.{extension}",
+                label_fields=["well"],
+                color_by="none",
+                show_legend=False,
+                font_size=16,
+            )
     print(f"Synthetic examples generated in {figures}")
 
 

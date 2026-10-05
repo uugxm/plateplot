@@ -21,7 +21,7 @@ def bounds(root, identity):
     return min(xs), min(ys), max(xs), max(ys)
 
 
-@pytest.mark.parametrize("count", [12, 24, 48, 96, 384])
+@pytest.mark.parametrize("count", [6, 12, 24, 48, 96, 384])
 def test_all_wells_vector_and_editable_text(tmp_path, count):
     result = draw_plate(
         count,
@@ -38,7 +38,17 @@ def test_all_wells_vector_and_editable_text(tmp_path, count):
 
 
 @pytest.mark.parametrize("scale", [1, 2.5])
-@pytest.mark.parametrize("name", ["generic-96", "nunc-167008", "nunc-161093"])
+@pytest.mark.parametrize(
+    "name",
+    [
+        "generic-96",
+        "nunc-167008",
+        "nunc-161093",
+        "nunc-140675-schematic",
+        "nunc-142485",
+        "nunc-144530",
+    ],
+)
 def test_physical_geometry_in_svg(tmp_path, scale, name):
     template = load_template(name)
     result = draw_plate(
@@ -47,6 +57,8 @@ def test_physical_geometry_in_svg(tmp_path, scale, name):
         scale=scale,
         mode="physical" if scale == 1 else "annotation",
         show_dimensions=True,
+        coordinate_font_size=12,
+        show_scale_bar=False,
     )
     root = ET.parse(result.path).getroot()
     x0, y0, x1, y1 = bounds(root, "well-A1")
@@ -153,6 +165,23 @@ def test_scale_bar_can_be_hidden_and_rejects_overflow(tmp_path):
     assert node(ET.parse(result.path).getroot(), "scale-bar") is None
     with pytest.raises(ValueError, match="Scale bar cannot fit"):
         draw_plate(output=tmp_path / "oversize.svg", scale_bar_mm=200)
+
+
+@pytest.mark.parametrize(
+    "name,count", [("nunc-140675-schematic", 6), ("nunc-142485", 24), ("nunc-144530", 24)]
+)
+def test_new_plate_style_and_assumption_notices(tmp_path, name, count):
+    result = draw_plate(name, output=tmp_path / "plate.svg", label_fields=["well"], font_size=16)
+    root = ET.parse(result.path).getroot()
+    assert sum(e.get("id", "").startswith("well-") for e in root.iter()) == count
+    assert any("not manufacturer-verified" in notice for notice in result.notices)
+    x0, y0, x1, y1 = bounds(root, "scale-bar")
+    bx0, by0, bx1, by1 = bounds(root, "plate-outline")
+    assert bx0 < x0 < x1 < bx1 and by0 < y0 == y1 < by1
+    assert x1 - x0 == pytest.approx(10 * 72 / 25.4 * result.scale, abs=1e-5)
+    visible = " ".join(e.text or "" for e in root.findall(f".//{SVG}text"))
+    assert "Nunc" not in visible
+    assert "16.3" not in visible
 
 
 def test_pdf_scale_and_no_raster_images(tmp_path):

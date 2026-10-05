@@ -92,6 +92,7 @@ class PlateTemplate:
     well_depth_mm: float | None = None
     well_outer_diameter_mm: float | None = None
     outline_simplified: bool = False
+    assumed_fields: tuple[str, ...] = ()
     source: TemplateSource = field(default_factory=TemplateSource)
 
     def __post_init__(self):
@@ -108,6 +109,24 @@ class PlateTemplate:
             raise ValueError("source must be a TemplateSource")
         if type(self.outline_simplified) is not bool:
             raise ValueError("outline_simplified must be a boolean")
+        assumed = self.assumed_fields
+        geometry_fields = {
+            "width_mm",
+            "height_mm",
+            "well_diameter_mm",
+            "pitch_x_mm",
+            "pitch_y_mm",
+            "a1_x_mm",
+            "a1_y_mm",
+            "corner_radius_mm",
+        }
+        if (
+            not isinstance(assumed, (list, tuple))
+            or any(not isinstance(name, str) or name not in geometry_fields for name in assumed)
+            or len(set(assumed)) != len(assumed)
+        ):
+            raise ValueError("assumed_fields must list distinct geometry field names")
+        object.__setattr__(self, "assumed_fields", tuple(assumed))
         for name in ("rows", "columns"):
             value = getattr(self, name)
             if isinstance(value, bool) or not isinstance(value, int) or value < 1:
@@ -216,8 +235,15 @@ def load_template(value: str | int | Path | PlateTemplate) -> PlateTemplate:
     if isinstance(value, PlateTemplate):
         return value
     name = str(value)
-    if name in {"96", "cell-culture-96"}:
-        name = "nunc-167008"
+    aliases = {
+        "96": "nunc-167008",
+        "cell-culture-96": "nunc-167008",
+        "6": "nunc-140675-schematic",
+        "cell-culture-6": "nunc-140675-schematic",
+        "cell-culture-24": "nunc-142485",
+    }
+    if name in aliases:
+        name = aliases[name]
     elif name.isdigit():
         name = f"generic-{name}"
     if name in list_templates():

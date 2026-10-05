@@ -26,7 +26,7 @@ def parser() -> argparse.ArgumentParser:
     draw.add_argument(
         "--template",
         default="96",
-        help="12/24/48/96/384, name, or JSON file (default: 96 = Nunc 167008)",
+        help="6/12/24/48/96/384, name, or JSON file (default: 96 = Nunc 167008)",
     )
     draw.add_argument("--data", type=Path, help="CSV file; omitted for a blank plate")
     draw.add_argument("--output", required=True, type=Path)
