@@ -223,7 +223,10 @@ def draw_plate(
     font_size: float = 9,
     min_font_size: float = 4,
     coordinate_position: str = "inside",
-    coordinate_font_size: float = 12,
+    coordinate_font_size: float = 16,
+    well_line_width: float = 0.85,
+    show_scale_bar: bool = True,
+    scale_bar_mm: float = 10,
     font_path: str | Path | None = None,
     svg_text: str = "text",
     show_legend: bool = True,
@@ -233,7 +236,8 @@ def draw_plate(
     """Draw all wells; atomic SVG/PDF export with preserved physical geometry.
 
     The default 96-well cell culture plate is Nunc 167008 (161093 shares its geometry).
-    Row/column coordinates default to 12 pt inside the plate's left/top margins.
+    Row/column coordinates default to 16 pt inside the plate's left/top margins.
+    A 10 mm scale bar defaults to the bottom-right margin inside the plate.
     Plate title and parameters are hidden unless requested; an explicit title is shown.
     ``physical`` fixes scale=1; ``annotation`` defaults to scale=2 (3 for 384).
     Explicit fill colors override automatic group/concentration colors.
@@ -265,6 +269,8 @@ def draw_plate(
     coordinate_font_size = finite_number(
         coordinate_font_size, "coordinate_font_size", positive=True
     )
+    well_line_width = finite_number(well_line_width, "well_line_width", positive=True)
+    scale_bar_mm = finite_number(scale_bar_mm, "scale_bar_mm", positive=True)
     if coordinate_position not in {"inside", "outside"}:
         raise ValueError("coordinate_position must be inside or outside")
     if min_font_size > font_size:
@@ -446,7 +452,7 @@ def draw_plate(
                     template.well_diameter_mm / 2,
                     facecolor=color,
                     edgecolor="#8495AA",
-                    linewidth=0.55,
+                    linewidth=well_line_width,
                     gid=f"well-{well}",
                 )
             )
@@ -478,6 +484,56 @@ def draw_plate(
                 fonts[well] = size
                 if size < 6:
                     notices.append(f"{well}: label uses small text ({size:g} pt)")
+        if show_scale_bar:
+            last_y = template.a1_y_mm + (template.rows - 1) * template.pitch_y_mm
+            well_bottom = last_y + template.well_diameter_mm / 2
+            bottom_gap = template.height_mm - well_bottom
+            end_x = template.width_mm - max(4, template.corner_radius_mm + 0.5)
+            start_x = end_x - scale_bar_mm
+            bar_y = well_bottom + bottom_gap * 0.72
+            label_y = well_bottom + bottom_gap * 0.28
+            tick_half = min(0.6, bottom_gap * 0.1)
+            label = _text(
+                ax,
+                (start_x + end_x) / 2,
+                label_y,
+                f"{scale_bar_mm:g} mm",
+                font,
+                size=8,
+                gid="scale-bar-label",
+            )
+            box = label.get_window_extent(renderer).transformed(ax.transData.inverted())
+            xs, ys = box.get_points().T
+            if (
+                start_x < max(0.5, template.corner_radius_mm)
+                or min(xs) < 0.5
+                or max(xs) > template.width_mm - 0.5
+                or min(ys) < well_bottom + 0.25
+                or max(ys) > bar_y - tick_half - 0.25
+                or bar_y + tick_half > template.height_mm - 0.25
+            ):
+                raise ValueError(
+                    "Scale bar cannot fit inside the bottom plate margin; reduce "
+                    "scale_bar_mm / --scale-bar-mm, increase annotation scale, or use "
+                    "show_scale_bar=False / --no-scale-bar"
+                )
+            ax.plot(
+                [start_x, end_x],
+                [bar_y, bar_y],
+                color="#243247",
+                linewidth=1.2,
+                solid_capstyle="butt",
+                gid="scale-bar",
+            )
+            for name, x in [("left", start_x), ("right", end_x)]:
+                ax.plot(
+                    [x, x],
+                    [bar_y - tick_half, bar_y + tick_half],
+                    color="#243247",
+                    linewidth=1.2,
+                    solid_capstyle="butt",
+                    gid=f"scale-bar-tick-{name}",
+                )
         base_y = template.height_mm + 9
         if show_dimensions:
             for start, end in [

@@ -120,7 +120,7 @@ def test_coordinate_placement_and_font(tmp_path, position):
         x, y = float(text.get("x")), float(text.get("y"))
         assert (bx0 < x < bounds(root, f"well-{row}1")[0]) == (position == "inside")
         assert by0 < y < by1
-        assert "font-size: 12px" in text.get("style")
+        assert "font-size: 16px" in text.get("style")
     for column in range(1, 13):
         text = node(root, f"coordinate-column-{column}").find(f"{SVG}text")
         x, y = float(text.get("x")), float(text.get("y"))
@@ -131,6 +131,28 @@ def test_coordinate_placement_and_font(tmp_path, position):
 def test_coordinate_overflow_is_reported(tmp_path):
     with pytest.raises(ValueError, match="coordinates cannot fit"):
         draw_plate(output=tmp_path / "oversize.svg", coordinate_font_size=100)
+
+
+@pytest.mark.parametrize("scale", [1, 2, 2.5])
+@pytest.mark.parametrize("length", [10, 20])
+def test_scale_bar_physical_length_and_position(tmp_path, scale, length):
+    result = draw_plate(output=tmp_path / "bar.svg", scale=scale, scale_bar_mm=length)
+    root = ET.parse(result.path).getroot()
+    x0, y0, x1, y1 = bounds(root, "scale-bar")
+    bx0, by0, bx1, by1 = bounds(root, "plate-outline")
+    assert x1 - x0 == pytest.approx(length * 72 / 25.4 * scale, abs=1e-5)
+    assert bx0 < x0 < x1 < bx1
+    assert by0 < y0 == y1 < by1
+    assert y0 > bounds(root, "well-H12")[3]
+    assert f"{length} mm" in "".join(node(root, "scale-bar-label").itertext())
+    assert "stroke-width: 0.85" in node(root, "well-A1").find(f"{SVG}path").get("style")
+
+
+def test_scale_bar_can_be_hidden_and_rejects_overflow(tmp_path):
+    result = draw_plate(output=tmp_path / "bar.svg", show_scale_bar=False)
+    assert node(ET.parse(result.path).getroot(), "scale-bar") is None
+    with pytest.raises(ValueError, match="Scale bar cannot fit"):
+        draw_plate(output=tmp_path / "oversize.svg", scale_bar_mm=200)
 
 
 def test_pdf_scale_and_no_raster_images(tmp_path):
@@ -225,6 +247,10 @@ def test_svg_outlined_text(tmp_path):
         {"coordinate_font_size": 0},
         {"coordinate_font_size": float("nan")},
         {"coordinate_position": "bad"},
+        {"well_line_width": 0},
+        {"well_line_width": float("inf")},
+        {"scale_bar_mm": -1},
+        {"scale_bar_mm": float("nan")},
         {"svg_text": "bad"},
         {"overflow": "bad"},
         {"color_by": "bad"},

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0a6 - 2026-10-05
+
+- Enlarge row/column coordinates to 16 pt and well outlines to 0.85 pt by default.
+- Add an in-plate 10 mm scale bar with scale-correct geometry and margin validation.
+- Add configurable well outline width, scale bar length and scale bar visibility.
+
 ## 0.1.0a5 - 2026-10-05
 
 - Hide automatic plate names, geometry summaries and provenance footers by default.

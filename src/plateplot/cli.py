@@ -48,7 +48,12 @@ def parser() -> argparse.ArgumentParser:
     draw.add_argument("--font-size", type=float, default=9)
     draw.add_argument("--min-font-size", type=float, default=4)
     draw.add_argument("--coordinate-position", default="inside", choices=["inside", "outside"])
-    draw.add_argument("--coordinate-font-size", type=float, default=12)
+    draw.add_argument("--coordinate-font-size", type=float, default=16)
+    draw.add_argument(
+        "--well-line-width", type=float, default=0.85, help="Well outline width in pt"
+    )
+    draw.add_argument("--no-scale-bar", action="store_true")
+    draw.add_argument("--scale-bar-mm", type=float, default=10)
     draw.add_argument("--font-file", type=Path)
     draw.add_argument("--svg-text", default="text", choices=["text", "path"])
     draw.add_argument("--overflow", default="error", choices=["error", "warn"])
@@ -109,6 +114,9 @@ def main(argv: list[str] | None = None) -> int:
                 min_font_size=arguments.min_font_size,
                 coordinate_position=arguments.coordinate_position,
                 coordinate_font_size=arguments.coordinate_font_size,
+                well_line_width=arguments.well_line_width,
+                show_scale_bar=not arguments.no_scale_bar,
+                scale_bar_mm=arguments.scale_bar_mm,
                 font_path=arguments.font_file,
                 svg_text=arguments.svg_text,
                 show_legend=not arguments.no_legend,

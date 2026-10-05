@@ -22,7 +22,7 @@ plateplot draw --template 96 --data examples/samples-96.csv --output output/plat
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
-仓库当前版本为 `0.1.0a5`。初始 PR 合并前，默认分支只包含初始化文件。
+仓库当前版本为 `0.1.0a6`。初始 PR 合并前，默认分支只包含初始化文件。
 
 默认使用 Nunc 167008 96 孔细胞培养板（161093 同尺寸）。画带孔位编号的空板：
 
@@ -37,10 +37,15 @@ Python 也可以省略板型：`draw_plate(output="blank.svg", label_fields=["we
 `show_title=True` / `show_parameters=True`。显式传入 `--title` / `title` 会显示自定义标题。
 模板来源仍保留在文件元数据和 CLI 提示中；`--dimensions` 可独立显示尺寸标注。
 
-行列编号默认放在板框内，字号为 12 pt（原为 7 pt）。用 `--coordinate-font-size`
+行列编号默认放在板框内，字号为 16 pt。用 `--coordinate-font-size`
 调整编号大小，`--coordinate-position outside` 放回框外；Python 参数分别是
 `coordinate_font_size` / `coordinate_position`。孔内文字使用独立的 `--font-size`。
 框内编号会校验是否超出边缘留白或占用相邻编号位置；过大时提示调整字号或比例。
+
+孔边线默认宽度为 0.85 pt，用 `--well-line-width` / `well_line_width` 调整。
+默认在板内右下方显示 **10 mm 标尺**，长度随图中的毫米比例缩放，标签表示板体实际长度。
+使用 `--scale-bar-mm 20` / `scale_bar_mm=20` 调整长度，或用 `--no-scale-bar` /
+`show_scale_bar=False` 隐藏。标尺会校验底部留白，避免压住孔口或越过外框。
 
 ## Python API
 

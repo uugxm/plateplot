@@ -4,7 +4,7 @@ from .data import WellData, load_csv
 from .models import PlateTemplate, TemplateSource, list_templates, load_template
 from .render import RenderResult, draw_plate
 
-__version__ = "0.1.0a5"
+__version__ = "0.1.0a6"
 __all__ = [
     "PlateTemplate",
     "TemplateSource",
