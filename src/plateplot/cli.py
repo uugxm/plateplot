@@ -43,6 +43,8 @@ def parser() -> argparse.ArgumentParser:
     draw.add_argument("--cmap", default="viridis")
     draw.add_argument("--font-size", type=float, default=9)
     draw.add_argument("--min-font-size", type=float, default=4)
+    draw.add_argument("--coordinate-position", default="inside", choices=["inside", "outside"])
+    draw.add_argument("--coordinate-font-size", type=float, default=12)
     draw.add_argument("--font-file", type=Path)
     draw.add_argument("--svg-text", default="text", choices=["text", "path"])
     draw.add_argument("--overflow", default="error", choices=["error", "warn"])
@@ -99,6 +101,8 @@ def main(argv: list[str] | None = None) -> int:
                 cmap=arguments.cmap,
                 font_size=arguments.font_size,
                 min_font_size=arguments.min_font_size,
+                coordinate_position=arguments.coordinate_position,
+                coordinate_font_size=arguments.coordinate_font_size,
                 font_path=arguments.font_file,
                 svg_text=arguments.svg_text,
                 show_legend=not arguments.no_legend,

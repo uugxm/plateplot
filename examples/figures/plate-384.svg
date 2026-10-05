@@ -1194,125 +1194,125 @@
    <ns0:g id="text_2">
     <ns0:text style="font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: start; fill: #243247" x="102.047244" y="112.371181" transform="rotate(-0 102.047244 112.371181)">16 x 24 | 127.76 x 85.48 mm | well diameter 3.3 mm | scale 3:1</ns0:text>
    </ns0:g>
-   <ns0:g id="text_3">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="274.546179" transform="rotate(-0 76.535433 274.546179)">A</ns0:text>
+   <ns0:g id="coordinate-row-A">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="276.335632" transform="rotate(-0 146.607874 276.335632)">A</ns0:text>
    </ns0:g>
-   <ns0:g id="text_4">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="312.813896" transform="rotate(-0 76.535433 312.813896)">B</ns0:text>
+   <ns0:g id="coordinate-row-B">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="314.603349" transform="rotate(-0 146.607874 314.603349)">B</ns0:text>
    </ns0:g>
-   <ns0:g id="text_5">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="351.081612" transform="rotate(-0 76.535433 351.081612)">C</ns0:text>
+   <ns0:g id="coordinate-row-C">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="352.871065" transform="rotate(-0 146.607874 352.871065)">C</ns0:text>
    </ns0:g>
-   <ns0:g id="text_6">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="389.349329" transform="rotate(-0 76.535433 389.349329)">D</ns0:text>
+   <ns0:g id="coordinate-row-D">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="391.138782" transform="rotate(-0 146.607874 391.138782)">D</ns0:text>
    </ns0:g>
-   <ns0:g id="text_7">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="427.617045" transform="rotate(-0 76.535433 427.617045)">E</ns0:text>
+   <ns0:g id="coordinate-row-E">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="429.406499" transform="rotate(-0 146.607874 429.406499)">E</ns0:text>
    </ns0:g>
-   <ns0:g id="text_8">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="465.884762" transform="rotate(-0 76.535433 465.884762)">F</ns0:text>
+   <ns0:g id="coordinate-row-F">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="467.674215" transform="rotate(-0 146.607874 467.674215)">F</ns0:text>
    </ns0:g>
-   <ns0:g id="text_9">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="504.152478" transform="rotate(-0 76.535433 504.152478)">G</ns0:text>
+   <ns0:g id="coordinate-row-G">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="505.941932" transform="rotate(-0 146.607874 505.941932)">G</ns0:text>
    </ns0:g>
-   <ns0:g id="text_10">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="542.420195" transform="rotate(-0 76.535433 542.420195)">H</ns0:text>
+   <ns0:g id="coordinate-row-H">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="544.209648" transform="rotate(-0 146.607874 544.209648)">H</ns0:text>
    </ns0:g>
-   <ns0:g id="text_11">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="580.687912" transform="rotate(-0 76.535433 580.687912)">I</ns0:text>
+   <ns0:g id="coordinate-row-I">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="582.477365" transform="rotate(-0 146.607874 582.477365)">I</ns0:text>
    </ns0:g>
-   <ns0:g id="text_12">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="618.912972" transform="rotate(-0 76.535433 618.912972)">J</ns0:text>
+   <ns0:g id="coordinate-row-J">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="620.671956" transform="rotate(-0 146.607874 620.671956)">J</ns0:text>
    </ns0:g>
-   <ns0:g id="text_13">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="657.223345" transform="rotate(-0 76.535433 657.223345)">K</ns0:text>
+   <ns0:g id="coordinate-row-K">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="659.012798" transform="rotate(-0 146.607874 659.012798)">K</ns0:text>
    </ns0:g>
-   <ns0:g id="text_14">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="695.491061" transform="rotate(-0 76.535433 695.491061)">L</ns0:text>
+   <ns0:g id="coordinate-row-L">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="697.280514" transform="rotate(-0 146.607874 697.280514)">L</ns0:text>
    </ns0:g>
-   <ns0:g id="text_15">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="733.758778" transform="rotate(-0 76.535433 733.758778)">M</ns0:text>
+   <ns0:g id="coordinate-row-M">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="735.548231" transform="rotate(-0 146.607874 735.548231)">M</ns0:text>
    </ns0:g>
-   <ns0:g id="text_16">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="772.026494" transform="rotate(-0 76.535433 772.026494)">N</ns0:text>
+   <ns0:g id="coordinate-row-N">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="773.815947" transform="rotate(-0 146.607874 773.815947)">N</ns0:text>
    </ns0:g>
-   <ns0:g id="text_17">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="810.294211" transform="rotate(-0 76.535433 810.294211)">O</ns0:text>
+   <ns0:g id="coordinate-row-O">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="812.083664" transform="rotate(-0 146.607874 812.083664)">O</ns0:text>
    </ns0:g>
-   <ns0:g id="text_18">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="76.535433" y="848.561927" transform="rotate(-0 76.535433 848.561927)">P</ns0:text>
+   <ns0:g id="coordinate-row-P">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="146.607874" y="850.35138" transform="rotate(-0 146.607874 850.35138)">P</ns0:text>
    </ns0:g>
-   <ns0:g id="text_19">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="205.2" y="172.596006" transform="rotate(-0 205.2 172.596006)">1</ns0:text>
+   <ns0:g id="coordinate-column-1">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="205.2" y="231.115313" transform="rotate(-0 205.2 231.115313)">1</ns0:text>
    </ns0:g>
-   <ns0:g id="text_20">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="243.467717" y="172.596006" transform="rotate(-0 243.467717 172.596006)">2</ns0:text>
+   <ns0:g id="coordinate-column-2">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="243.467717" y="231.115313" transform="rotate(-0 243.467717 231.115313)">2</ns0:text>
    </ns0:g>
-   <ns0:g id="text_21">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="281.735433" y="172.55335" transform="rotate(-0 281.735433 172.55335)">3</ns0:text>
+   <ns0:g id="coordinate-column-3">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="281.735433" y="231.042188" transform="rotate(-0 281.735433 231.042188)">3</ns0:text>
    </ns0:g>
-   <ns0:g id="text_22">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="320.00315" y="172.583975" transform="rotate(-0 320.00315 172.583975)">4</ns0:text>
+   <ns0:g id="coordinate-column-4">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="320.00315" y="231.094688" transform="rotate(-0 320.00315 231.094688)">4</ns0:text>
    </ns0:g>
-   <ns0:g id="text_23">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="358.270866" y="172.507412" transform="rotate(-0 358.270866 172.507412)">5</ns0:text>
+   <ns0:g id="coordinate-column-5">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="358.270866" y="230.963438" transform="rotate(-0 358.270866 230.963438)">5</ns0:text>
    </ns0:g>
-   <ns0:g id="text_24">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="396.538583" y="172.55335" transform="rotate(-0 396.538583 172.55335)">6</ns0:text>
+   <ns0:g id="coordinate-column-6">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="396.538583" y="231.042188" transform="rotate(-0 396.538583 231.042188)">6</ns0:text>
    </ns0:g>
-   <ns0:g id="text_25">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="434.806299" y="172.550068" transform="rotate(-0 434.806299 172.550068)">7</ns0:text>
+   <ns0:g id="coordinate-column-7">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="434.806299" y="231.036563" transform="rotate(-0 434.806299 231.036563)">7</ns0:text>
    </ns0:g>
-   <ns0:g id="text_26">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="473.074016" y="172.55335" transform="rotate(-0 473.074016 172.55335)">8</ns0:text>
+   <ns0:g id="coordinate-column-8">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="473.074016" y="231.042188" transform="rotate(-0 473.074016 231.042188)">8</ns0:text>
    </ns0:g>
-   <ns0:g id="text_27">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="511.341732" y="172.55335" transform="rotate(-0 511.341732 172.55335)">9</ns0:text>
+   <ns0:g id="coordinate-column-9">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="511.341732" y="231.042188" transform="rotate(-0 511.341732 231.042188)">9</ns0:text>
    </ns0:g>
-   <ns0:g id="text_28">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="549.609449" y="172.55335" transform="rotate(-0 549.609449 172.55335)">10</ns0:text>
+   <ns0:g id="coordinate-column-10">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="549.609449" y="231.042188" transform="rotate(-0 549.609449 231.042188)">10</ns0:text>
    </ns0:g>
-   <ns0:g id="text_29">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="587.877165" y="172.596006" transform="rotate(-0 587.877165 172.596006)">11</ns0:text>
+   <ns0:g id="coordinate-column-11">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="587.877165" y="231.115313" transform="rotate(-0 587.877165 231.115313)">11</ns0:text>
    </ns0:g>
-   <ns0:g id="text_30">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="626.144882" y="172.596006" transform="rotate(-0 626.144882 172.596006)">12</ns0:text>
+   <ns0:g id="coordinate-column-12">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="626.144882" y="231.115313" transform="rotate(-0 626.144882 231.115313)">12</ns0:text>
    </ns0:g>
-   <ns0:g id="text_31">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="664.412598" y="172.55335" transform="rotate(-0 664.412598 172.55335)">13</ns0:text>
+   <ns0:g id="coordinate-column-13">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="664.412598" y="231.042188" transform="rotate(-0 664.412598 231.042188)">13</ns0:text>
    </ns0:g>
-   <ns0:g id="text_32">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="702.680315" y="172.596006" transform="rotate(-0 702.680315 172.596006)">14</ns0:text>
+   <ns0:g id="coordinate-column-14">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="702.680315" y="231.115313" transform="rotate(-0 702.680315 231.115313)">14</ns0:text>
    </ns0:g>
-   <ns0:g id="text_33">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="740.948031" y="172.55335" transform="rotate(-0 740.948031 172.55335)">15</ns0:text>
+   <ns0:g id="coordinate-column-15">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="740.948031" y="231.042188" transform="rotate(-0 740.948031 231.042188)">15</ns0:text>
    </ns0:g>
-   <ns0:g id="text_34">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="779.215748" y="172.55335" transform="rotate(-0 779.215748 172.55335)">16</ns0:text>
+   <ns0:g id="coordinate-column-16">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="779.215748" y="231.042188" transform="rotate(-0 779.215748 231.042188)">16</ns0:text>
    </ns0:g>
-   <ns0:g id="text_35">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="817.483465" y="172.596006" transform="rotate(-0 817.483465 172.596006)">17</ns0:text>
+   <ns0:g id="coordinate-column-17">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="817.483465" y="231.115313" transform="rotate(-0 817.483465 231.115313)">17</ns0:text>
    </ns0:g>
-   <ns0:g id="text_36">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="855.751181" y="172.55335" transform="rotate(-0 855.751181 172.55335)">18</ns0:text>
+   <ns0:g id="coordinate-column-18">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="855.751181" y="231.042188" transform="rotate(-0 855.751181 231.042188)">18</ns0:text>
    </ns0:g>
-   <ns0:g id="text_37">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="894.018898" y="172.55335" transform="rotate(-0 894.018898 172.55335)">19</ns0:text>
+   <ns0:g id="coordinate-column-19">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="894.018898" y="231.042188" transform="rotate(-0 894.018898 231.042188)">19</ns0:text>
    </ns0:g>
-   <ns0:g id="text_38">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="932.286614" y="172.55335" transform="rotate(-0 932.286614 172.55335)">20</ns0:text>
+   <ns0:g id="coordinate-column-20">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="932.286614" y="231.042188" transform="rotate(-0 932.286614 231.042188)">20</ns0:text>
    </ns0:g>
-   <ns0:g id="text_39">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="970.554331" y="172.596006" transform="rotate(-0 970.554331 172.596006)">21</ns0:text>
+   <ns0:g id="coordinate-column-21">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="970.554331" y="231.115313" transform="rotate(-0 970.554331 231.115313)">21</ns0:text>
    </ns0:g>
-   <ns0:g id="text_40">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="1008.822047" y="172.596006" transform="rotate(-0 1008.822047 172.596006)">22</ns0:text>
+   <ns0:g id="coordinate-column-22">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="1008.822047" y="231.115313" transform="rotate(-0 1008.822047 231.115313)">22</ns0:text>
    </ns0:g>
-   <ns0:g id="text_41">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="1047.089764" y="172.55335" transform="rotate(-0 1047.089764 172.55335)">23</ns0:text>
+   <ns0:g id="coordinate-column-23">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="1047.089764" y="231.042188" transform="rotate(-0 1047.089764 231.042188)">23</ns0:text>
    </ns0:g>
-   <ns0:g id="text_42">
-    <ns0:text style="font-weight: 700; font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="1085.35748" y="172.596006" transform="rotate(-0 1085.35748 172.596006)">24</ns0:text>
+   <ns0:g id="coordinate-column-24">
+    <ns0:text style="font-weight: 700; font-size: 12px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="1085.35748" y="231.115313" transform="rotate(-0 1085.35748 231.115313)">24</ns0:text>
    </ns0:g>
    <ns0:g id="label-A1">
     <ns0:text style="font-size: 7.5px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="205.2" y="274.725125" transform="rotate(-0 205.2 274.725125)">S001</ns0:text>
@@ -2466,16 +2466,16 @@
    <ns0:g id="label-P24">
     <ns0:text style="font-size: 7.5px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="1085.35748" y="848.740873" transform="rotate(-0 1085.35748 848.740873)">S384</ns0:text>
    </ns0:g>
-   <ns0:g id="text_43">
+   <ns0:g id="text_3">
     <ns0:text style="font-size: 6px; font-family: 'Arial Unicode MS'; text-anchor: start; fill: #243247" x="136.062992" y="1001.189863" transform="rotate(-0 136.062992 1001.189863)">Control</ns0:text>
    </ns0:g>
-   <ns0:g id="text_44">
+   <ns0:g id="text_4">
     <ns0:text style="font-size: 6px; font-family: 'Arial Unicode MS'; text-anchor: start; fill: #243247" x="498.217323" y="1001.153301" transform="rotate(-0 498.217323 1001.153301)">Treatment A</ns0:text>
    </ns0:g>
-   <ns0:g id="text_45">
+   <ns0:g id="text_5">
     <ns0:text style="font-size: 6px; font-family: 'Arial Unicode MS'; text-anchor: start; fill: #243247" x="860.371654" y="1001.153301" transform="rotate(-0 860.371654 1001.153301)">Treatment B</ns0:text>
    </ns0:g>
-   <ns0:g id="text_46">
+   <ns0:g id="text_6">
     <ns0:text style="font-size: 6px; font-family: 'Arial Unicode MS'; text-anchor: start; fill: #59708a" x="102.047244" y="1102.646951" transform="rotate(-0 102.047244 1102.646951)">Illustrative dimensions | generic-384 @ 1 | circular top-view schematic</ns0:text>
    </ns0:g>
   </ns0:g>

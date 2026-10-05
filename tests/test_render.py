@@ -85,6 +85,29 @@ def test_default_draw_numbers_every_well(tmp_path):
     assert x1 - x0 == pytest.approx(6.97 * 72 / 25.4 * result.scale, abs=1e-5)
 
 
+@pytest.mark.parametrize("position", ["inside", "outside"])
+def test_coordinate_placement_and_font(tmp_path, position):
+    result = draw_plate(output=tmp_path / "coordinates.svg", coordinate_position=position)
+    root = ET.parse(result.path).getroot()
+    bx0, by0, bx1, by1 = bounds(root, "plate-outline")
+    for row in "ABCDEFGH":
+        text = node(root, f"coordinate-row-{row}").find(f"{SVG}text")
+        x, y = float(text.get("x")), float(text.get("y"))
+        assert (bx0 < x < bounds(root, f"well-{row}1")[0]) == (position == "inside")
+        assert by0 < y < by1
+        assert "font-size: 12px" in text.get("style")
+    for column in range(1, 13):
+        text = node(root, f"coordinate-column-{column}").find(f"{SVG}text")
+        x, y = float(text.get("x")), float(text.get("y"))
+        assert (by0 < y < bounds(root, f"well-A{column}")[1]) == (position == "inside")
+        assert bx0 < x < bx1
+
+
+def test_coordinate_overflow_is_reported(tmp_path):
+    with pytest.raises(ValueError, match="coordinates cannot fit"):
+        draw_plate(output=tmp_path / "oversize.svg", coordinate_font_size=100)
+
+
 def test_pdf_scale_and_no_raster_images(tmp_path):
     result = draw_plate(
         96,
@@ -174,6 +197,9 @@ def test_svg_outlined_text(tmp_path):
         {"label_fields": "sample_name"},
         {"label_fields": ["typo"]},
         {"min_font_size": 12},
+        {"coordinate_font_size": 0},
+        {"coordinate_font_size": float("nan")},
+        {"coordinate_position": "bad"},
         {"svg_text": "bad"},
         {"overflow": "bad"},
         {"color_by": "bad"},

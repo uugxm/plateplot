@@ -22,7 +22,7 @@ plateplot draw --template 96 --data examples/samples-96.csv --output output/plat
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
-仓库当前版本为 `0.1.0a3`。初始 PR 合并前，默认分支只包含初始化文件。
+仓库当前版本为 `0.1.0a4`。初始 PR 合并前，默认分支只包含初始化文件。
 
 默认使用 Nunc 167008 96 孔细胞培养板（161093 同尺寸）。画带孔位编号的空板：
 
@@ -31,6 +31,11 @@ plateplot draw --labels well --color-by none --no-legend --output output/blank.s
 ```
 
 Python 也可以省略板型：`draw_plate(output="blank.svg", label_fields=["well"])`。
+
+行列编号默认放在板框内，字号为 12 pt（原为 7 pt）。用 `--coordinate-font-size`
+调整编号大小，`--coordinate-position outside` 放回框外；Python 参数分别是
+`coordinate_font_size` / `coordinate_position`。孔内文字使用独立的 `--font-size`。
+框内编号会校验是否超出边缘留白或占用相邻编号位置；过大时提示调整字号或比例。
 
 ## Python API
 

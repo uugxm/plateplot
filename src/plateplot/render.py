@@ -220,6 +220,8 @@ def draw_plate(
     cmap: str = "viridis",
     font_size: float = 9,
     min_font_size: float = 4,
+    coordinate_position: str = "inside",
+    coordinate_font_size: float = 12,
     font_path: str | Path | None = None,
     svg_text: str = "text",
     show_legend: bool = True,
@@ -229,6 +231,7 @@ def draw_plate(
     """Draw all wells; atomic SVG/PDF export with preserved physical geometry.
 
     The default 96-well cell culture plate is Nunc 167008 (161093 shares its geometry).
+    Row/column coordinates default to 12 pt inside the plate's left/top margins.
     ``physical`` fixes scale=1; ``annotation`` defaults to scale=2 (3 for 384).
     Explicit fill colors override automatic group/concentration colors.
     Overlong labels raise by default. ``overflow='warn'`` omits the entire label.
@@ -256,6 +259,11 @@ def draw_plate(
         raise ValueError("overflow must be error or warn")
     font_size = finite_number(font_size, "font_size", positive=True)
     min_font_size = finite_number(min_font_size, "min_font_size", positive=True)
+    coordinate_font_size = finite_number(
+        coordinate_font_size, "coordinate_font_size", positive=True
+    )
+    if coordinate_position not in {"inside", "outside"}:
+        raise ValueError("coordinate_position must be inside or outside")
     if min_font_size > font_size:
         raise ValueError("min_font_size must not exceed font_size")
     if (
@@ -356,12 +364,47 @@ def draw_plate(
             gid="plate-outline",
         )
         ax.add_patch(outline)
+        left_gap = template.a1_x_mm - template.well_diameter_mm / 2
+        top_gap = template.a1_y_mm - template.well_diameter_mm / 2
+
+        def coordinate(x, y, text, identity, box):
+            artist = _text(
+                ax, x, y, text, font, size=coordinate_font_size, weight="bold", gid=identity
+            )
+            if coordinate_position == "inside":
+                extent = artist.get_window_extent(renderer).transformed(ax.transData.inverted())
+                xs, ys = extent.get_points().T
+                if (
+                    min(xs) < box[0] + 0.25
+                    or max(xs) > box[2] - 0.25
+                    or min(ys) < box[1] + 0.25
+                    or max(ys) > box[3] - 0.25
+                ):
+                    raise ValueError(
+                        "Row/column coordinates cannot fit inside the plate margin; "
+                        "reduce coordinate_font_size / --coordinate-font-size, increase "
+                        "annotation scale, or use coordinate_position='outside' / "
+                        "--coordinate-position outside"
+                    )
+
         for row in range(template.rows):
             y = template.a1_y_mm + row * template.pitch_y_mm
-            _text(ax, -3, y, row_name(row), font, size=7, weight="bold")
+            coordinate(
+                left_gap / 2 if coordinate_position == "inside" else -3,
+                y,
+                row_name(row),
+                f"coordinate-row-{row_name(row)}",
+                (0, y - template.pitch_y_mm / 2, left_gap, y + template.pitch_y_mm / 2),
+            )
         for column in range(template.columns):
             x = template.a1_x_mm + column * template.pitch_x_mm
-            _text(ax, x, -3, str(column + 1), font, size=7, weight="bold")
+            coordinate(
+                x,
+                top_gap / 2 if coordinate_position == "inside" else -3,
+                str(column + 1),
+                f"coordinate-column-{column + 1}",
+                (x - template.pitch_x_mm / 2, 0, x + template.pitch_x_mm / 2, top_gap),
+            )
         for well in template.wells():
             x, y = template.center(well)
             color = fills.get(well, empty_color)

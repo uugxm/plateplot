@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0a4 - 2026-10-05
+
+- Move row/column coordinates inside the plate by default and enlarge them from 7 to 12 pt.
+- Add independent coordinate font size/position options and check available margin space.
+
 ## 0.1.0a3 - 2026-10-05
 
 - Make Nunc 167008 the default 96-well cell culture plate for Python and CLI drawing.
