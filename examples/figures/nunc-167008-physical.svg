@@ -395,7 +395,7 @@
     <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="329.669291" y="23.542736" transform="rotate(-0 329.669291 23.542736)">12</ns0:text>
    </ns0:g>
    <ns0:g id="scale-bar-label">
-    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="345.146457" y="236.925715" transform="rotate(-0 345.146457 236.925715)">10 mm</ns0:text>
+    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="345.146457" y="240.230014" transform="rotate(-0 345.146457 240.230014)">10 mm</ns0:text>
    </ns0:g>
    <ns0:g id="text_1">
     <ns0:text style="font-size: 6px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="189.581102" y="272.201656" transform="rotate(-0 189.581102 272.201656)">127.76 mm</ns0:text>

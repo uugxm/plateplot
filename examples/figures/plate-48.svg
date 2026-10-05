@@ -424,7 +424,7 @@
     <ns0:text style="font-size: 12px; font-family: 'Arial Unicode MS'; fill: #172b42" transform="translate(620.440586 452.39112)">30 µM</ns0:text>
    </ns0:g>
    <ns0:g id="scale-bar-label">
-    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="690.292913" y="482.296045" transform="rotate(-0 690.292913 482.296045)">10 mm</ns0:text>
+    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="690.292913" y="486.662203" transform="rotate(-0 690.292913 486.662203)">10 mm</ns0:text>
    </ns0:g>
    <ns0:g id="text_1">
     <ns0:text style="font-size: 6px; font-family: 'Arial Unicode MS'; text-anchor: start; fill: #243247" x="39.685039" y="554.192207" transform="rotate(-0 39.685039 554.192207)">Control</ns0:text>

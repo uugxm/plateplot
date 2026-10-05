@@ -673,7 +673,7 @@
     <ns0:text style="font-size: 9px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="659.338583" y="439.880437" transform="rotate(-0 659.338583 439.880437)">H12</ns0:text>
    </ns0:g>
    <ns0:g id="scale-bar-label">
-    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="690.292913" y="471.785179" transform="rotate(-0 690.292913 471.785179)">10 mm</ns0:text>
+    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="690.292913" y="482.143778" transform="rotate(-0 690.292913 482.143778)">10 mm</ns0:text>
    </ns0:g>
   </ns0:g>
  </ns0:g>

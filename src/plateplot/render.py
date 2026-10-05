@@ -491,17 +491,20 @@ def draw_plate(
             end_x = template.width_mm - max(4, template.corner_radius_mm + 0.5)
             start_x = end_x - scale_bar_mm
             bar_y = well_bottom + bottom_gap * 0.72
-            label_y = well_bottom + bottom_gap * 0.28
             tick_half = min(0.6, bottom_gap * 0.1)
             label = _text(
                 ax,
                 (start_x + end_x) / 2,
-                label_y,
+                bar_y,
                 f"{scale_bar_mm:g} mm",
                 font,
                 size=8,
                 gid="scale-bar-label",
             )
+            box = label.get_window_extent(renderer).transformed(ax.transData.inverted())
+            # Place the measured text bottom just above the end ticks.
+            text_bottom = max(box.get_points()[:, 1])
+            label.set_y(bar_y + (bar_y - tick_half - 0.35 - text_bottom))
             box = label.get_window_extent(renderer).transformed(ax.transData.inverted())
             xs, ys = box.get_points().T
             if (

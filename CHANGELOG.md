@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0a7 - 2026-10-05
+
+- Move scale-bar text closer to the bar using measured text bounds.
+
 ## 0.1.0a6 - 2026-10-05
 
 - Enlarge row/column coordinates to 16 pt and well outlines to 0.85 pt by default.

@@ -22,7 +22,7 @@ plateplot draw --template 96 --data examples/samples-96.csv --output output/plat
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
-仓库当前版本为 `0.1.0a6`。初始 PR 合并前，默认分支只包含初始化文件。
+仓库当前版本为 `0.1.0a7`。初始 PR 合并前，默认分支只包含初始化文件。
 
 默认使用 Nunc 167008 96 孔细胞培养板（161093 同尺寸）。画带孔位编号的空板：
 

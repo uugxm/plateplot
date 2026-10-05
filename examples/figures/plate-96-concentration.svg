@@ -961,7 +961,7 @@
     <ns0:text style="font-size: 9px; font-family: 'Arial Unicode MS'; fill: #172b42" transform="translate(646.832801 444.17523)">30 µM</ns0:text>
    </ns0:g>
    <ns0:g id="scale-bar-label">
-    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="690.292913" y="471.785179" transform="rotate(-0 690.292913 471.785179)">10 mm</ns0:text>
+    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="690.292913" y="482.143778" transform="rotate(-0 690.292913 482.143778)">10 mm</ns0:text>
    </ns0:g>
    <ns0:g id="text_1">
     <ns0:text style="font-size: 7px; font-family: 'Arial Unicode MS'; text-anchor: start; fill: #243247" x="17.007874" y="554.45541" transform="rotate(-0 17.007874 554.45541)">Concentration (µM)</ns0:text>
