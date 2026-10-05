@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "version": "1",
+  "manufacturer": "Thermo Scientific Nunc",
+  "corner_radius_mm": 0,
+  "outline_simplified": true,
+  "template_id": "nunc-140675-schematic",
+  "name": "Nunc 140675 - 6-well schematic",
+  "catalog_number": "140675",
+  "rows": 2,
+  "columns": 3,
+  "width_mm": 127.76,
+  "height_mm": 85.46,
+  "well_diameter_mm": 34.6,
+  "pitch_x_mm": 40,
+  "pitch_y_mm": 40,
+  "a1_x_mm": 23.9,
+  "a1_y_mm": 22.7,
+  "assumed_fields": [
+    "well_diameter_mm",
+    "pitch_x_mm",
+    "pitch_y_mm",
+    "a1_x_mm",
+    "a1_y_mm"
+  ],
+  "source": {
+    "kind": "manufacturer",
+    "url": "https://www.thermofisher.com/order/catalog/product/140675",
+    "checked_on": "2026-10-05",
+    "document_name": "140675 Rosklide.pdf",
+    "document_sha256": "8a70f2f4e02d784d419f559e77f72c17c05cce205a210bedee809e6a2124ff4e",
+    "drawing_number": "3223",
+    "drawing_version": "10-a",
+    "page": "2",
+    "notes": "Mixed-provenance schematic from supplied MD6 drawing 3223 v10-a, page 2. Footprint 127.76 x 85.46 mm is dimensioned. The visible innermost circular contour, pitch and A1 datum are measured from PDF vector linework after independent X/Y calibration to that footprint: visible inner diameter about 34.6 mm, pitch about 40.0 mm, A1 about (23.9,22.7) in landscape orientation with A1 upper-left. These are drawing-measurement estimates rounded to 0.1 mm, not manufacturer-specified opening dimensions; the plan view does not unambiguously identify top vs bottom internal diameter. See docs/measurements/nunc-140675.json and scripts/measure_nunc_6.py. Original chamfers/steps simplified. assumed_fields records every unverified dimension."
+  }
+}

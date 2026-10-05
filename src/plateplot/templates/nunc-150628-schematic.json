@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "template_id": "nunc-150628-schematic",
+  "version": "1",
+  "name": "Nunc 150628 - 12-well schematic",
+  "manufacturer": "Thermo Scientific Nunc",
+  "catalog_number": "150628",
+  "units": "mm",
+  "rows": 3,
+  "columns": 4,
+  "width_mm": 128,
+  "height_mm": 86,
+  "well_diameter_mm": 22,
+  "pitch_x_mm": 26,
+  "pitch_y_mm": 26,
+  "a1_x_mm": 25,
+  "a1_y_mm": 17,
+  "corner_radius_mm": 0,
+  "outline_simplified": true,
+  "assumed_fields": [
+    "well_diameter_mm",
+    "pitch_x_mm",
+    "pitch_y_mm",
+    "a1_x_mm",
+    "a1_y_mm"
+  ],
+  "source": {
+    "kind": "illustrative",
+    "url": "https://www.thermofisher.com/order/catalog/product/jp/ja/150628",
+    "checked_on": "2026-10-05",
+    "notes": "User-authorized schematic, not manufacturer-verified geometry. Official product page confirms 12 wells in a 3x4 array, 3.5 cm2 culture area and 2 mL working volume. The official Microplates Guide (https://assets.thermofisher.com/TFS-Assets/LCD/Product-Guides/Superior-performance-Microplates-Guide-CTLSPPLATEGUIDE-EN.pdf), printed page 11, lists rounded nominal external dimensions 128x86 mm, not precise engineering datums. No matching dimensioned 150628 drawing found. Diameter 22 mm and pitches 26 mm are illustrative choices retained from generic-12, not measured from a drawing or derived from culture area. Centered grid gives A1=(25,17) mm. Outline/chamfers simplified. See docs/nunc-12.md."
+  }
+}

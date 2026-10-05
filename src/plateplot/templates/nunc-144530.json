@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "version": "1",
+  "manufacturer": "Thermo Scientific Nunc",
+  "corner_radius_mm": 0,
+  "outline_simplified": true,
+  "template_id": "nunc-144530",
+  "name": "Nunc 144530 - 24-well plate",
+  "catalog_number": "144530",
+  "rows": 4,
+  "columns": 6,
+  "width_mm": 127.5,
+  "height_mm": 85.3,
+  "well_diameter_mm": 16.3,
+  "well_bottom_diameter_mm": 15.5,
+  "pitch_x_mm": 19.6,
+  "pitch_y_mm": 19.6,
+  "a1_x_mm": 14.75,
+  "a1_y_mm": 13.25,
+  "plate_height_mm": 18.8,
+  "well_depth_mm": 15.7,
+  "assumed_fields": [
+    "a1_x_mm",
+    "a1_y_mm"
+  ],
+  "source": {
+    "kind": "manufacturer",
+    "url": "https://www.thermofisher.com/order/catalog/product/144530",
+    "checked_on": "2026-10-05",
+    "document_name": "142485-144530_0508.PDF",
+    "document_sha256": "019faf0b75fa4289adf6a6a667dfb659ec79cdc2acd4c007efe21480f3622922",
+    "drawing_number": "PSS 142485/144530",
+    "drawing_version": "0508",
+    "page": "1",
+    "notes": "Base A=127.5 mm and B=85.3 mm; G top opening=16.3 mm, H bottom=15.5 mm, K pitch=19.6 mm, C base height=18.8 mm, J depth=15.7 mm from supplied PSS rev0508. A1 datums are not specified; centered 4x6 grid is an explicit assumption: x=(127.5-5*19.6)/2=14.75, y=(85.3-3*19.6)/2=13.25. The number-of-wells table says 8, inconsistent with its 24-well title, 4x6 top view, and official 142485 product description. Use 24, preserve the discrepancy in documentation. Never scale the NOT TO SCALE drawing for unspecified datums. Outline/chamfers simplified. See docs/nunc-6-24.md."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "template_id": "generic-96",
+  "version": "1",
+  "name": "96-well plate",
+  "units": "mm",
+  "rows": 8,
+  "columns": 12,
+  "width_mm": 127.76,
+  "height_mm": 85.48,
+  "well_diameter_mm": 6.4,
+  "pitch_x_mm": 9,
+  "pitch_y_mm": 9,
+  "a1_x_mm": 14.38,
+  "a1_y_mm": 11.24,
+  "corner_radius_mm": 3,
+  "source": {
+    "kind": "illustrative",
+    "url": "",
+    "checked_on": "",
+    "notes": "Illustrative, centered circular wells. These dimensions do not identify a manufacturer or catalog product. Replace with measured or manufacturer-sourced dimensions for accurate physical use."
+  }
+}

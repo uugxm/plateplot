@@ -1,0 +1,103 @@
+{
+  "source_sha256": "8a70f2f4e02d784d419f559e77f72c17c05cce205a210bedee809e6a2124ff4e",
+  "page": 2,
+  "method": "Least-squares fit to innermost visible vector contour; selected fixed view and contour band, independently calibrated using dimensioned footprint. Landscape rotation puts A1 upper-left.",
+  "limitation": "Estimates rounded to 0.1 mm; not manufacturer dimensions or manufacturing tolerances. The depicted inner contour cannot unambiguously establish top vs bottom internal diameter.",
+  "outline_pdf_pt": [
+    478.4303894042969,
+    127.68000030517578,
+    649.5503540039062,
+    383.5199890136719
+  ],
+  "calibration_pdf_pt_per_mm": {
+    "width_axis": 2.002339861919136,
+    "length_axis": 2.002504607924985
+  },
+  "circles": [
+    {
+      "center_pdf_pt": [
+        523.9367387656423,
+        175.49397169249684
+      ],
+      "landscape_center_mm": [
+        23.87708432634588,
+        62.73341385606237
+      ],
+      "visible_inner_diameter_mm": 34.60138792483445,
+      "selected_endpoints": 186,
+      "residual_rms_pdf_pt": 0.031167021080289143
+    },
+    {
+      "center_pdf_pt": [
+        604.0361851962081,
+        175.4926538069878
+      ],
+      "landscape_center_mm": [
+        23.87642620775587,
+        22.730491298352955
+      ],
+      "visible_inner_diameter_mm": 34.59966816147144,
+      "selected_endpoints": 168,
+      "residual_rms_pdf_pt": 0.032137189286278
+    },
+    {
+      "center_pdf_pt": [
+        523.9332823004074,
+        255.55308710342777
+      ],
+      "landscape_center_mm": [
+        63.85657555652536,
+        62.7351400691297
+      ],
+      "visible_inner_diameter_mm": 34.607839117661165,
+      "selected_endpoints": 172,
+      "residual_rms_pdf_pt": 0.029971119981339583
+    },
+    {
+      "center_pdf_pt": [
+        604.038124052602,
+        255.55322939137656
+      ],
+      "landscape_center_mm": [
+        63.8566466115173,
+        22.729523002994693
+      ],
+      "visible_inner_diameter_mm": 34.60751696526506,
+      "selected_endpoints": 160,
+      "residual_rms_pdf_pt": 0.03009615226693869
+    },
+    {
+      "center_pdf_pt": [
+        523.9345695383425,
+        335.70560763023855
+      ],
+      "landscape_center_mm": [
+        103.88271093199677,
+        62.73449720227198
+      ],
+      "visible_inner_diameter_mm": 34.60927283609201,
+      "selected_endpoints": 172,
+      "residual_rms_pdf_pt": 0.02906599466931369
+    },
+    {
+      "center_pdf_pt": [
+        604.0359387605527,
+        335.70554792529884
+      ],
+      "landscape_center_mm": [
+        103.88268111686453,
+        22.73061437219277
+      ],
+      "visible_inner_diameter_mm": 34.60596247266912,
+      "selected_endpoints": 150,
+      "residual_rms_pdf_pt": 0.027258904936416334
+    }
+  ],
+  "rounded_template_values": {
+    "well_diameter_mm": 34.6,
+    "pitch_x_mm": 40.0,
+    "pitch_y_mm": 40.0,
+    "a1_x_mm": 23.9,
+    "a1_y_mm": 22.7
+  }
+}

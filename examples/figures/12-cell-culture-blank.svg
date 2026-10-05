@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns2="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="268mm" height="184mm" viewBox="0 0 759.685039 521.574803" version="1.1">
+ <ns0:title>Nunc 150628 - 12-well schematic</ns0:title>
+ <ns0:metadata>
+  <rdf:RDF>
+   <ns2:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title>Nunc 150628 - 12-well schematic</dc:title>
+    <dc:description>Illustrative dimensions | nunc-150628-schematic @ 1 | simplified outline | assumed geometry</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <ns2:Agent>
+      <dc:title>PlatePlot</dc:title>
+     </ns2:Agent>
+    </dc:creator>
+   </ns2:Work>
+  </rdf:RDF>
+ </ns0:metadata>
+ <ns0:defs>
+  <ns0:style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</ns0:style>
+ </ns0:defs>
+ <ns0:g id="figure_1">
+  <ns0:g id="patch_1">
+   <ns0:path d="M 0 521.574803  L 759.685039 521.574803  L 759.685039 0  L 0 0  z " style="fill: #ffffff" />
+  </ns0:g>
+  <ns0:g id="axes_1">
+   <ns0:g id="plate-outline">
+    <ns0:path d="M 17.007874 17.007874  L 742.677165 17.007874  Q 742.677165 17.007874 742.677165 17.007874  L 742.677165 504.566929  Q 742.677165 504.566929 742.677165 504.566929  L 17.007874 504.566929  Q 17.007874 504.566929 17.007874 504.566929  L 17.007874 17.007874  Q 17.007874 17.007874 17.007874 17.007874  z " clip-path="url(#p0b0e407116)" style="fill: #f5f8fc; stroke: #59708a; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-A1">
+    <ns0:path d="M 158.740157 51.023622  C 175.278807 51.023622 191.142304 57.594497 202.836895 69.289089  C 214.531487 80.98368 221.102362 96.847177 221.102362 113.385827  C 221.102362 129.924477 214.531487 145.787973 202.836895 157.482565  C 191.142304 169.177156 175.278807 175.748031 158.740157 175.748031  C 142.201507 175.748031 126.338011 169.177156 114.64342 157.482565  C 102.948828 145.787973 96.377953 129.924477 96.377953 113.385827  C 96.377953 96.847177 102.948828 80.98368 114.64342 69.289089  C 126.338011 57.594497 142.201507 51.023622 158.740157 51.023622  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-A2">
+    <ns0:path d="M 306.141732 51.023622  C 322.680382 51.023622 338.543879 57.594497 350.23847 69.289089  C 361.933062 80.98368 368.503937 96.847177 368.503937 113.385827  C 368.503937 129.924477 361.933062 145.787973 350.23847 157.482565  C 338.543879 169.177156 322.680382 175.748031 306.141732 175.748031  C 289.603082 175.748031 273.739586 169.177156 262.044994 157.482565  C 250.350403 145.787973 243.779528 129.924477 243.779528 113.385827  C 243.779528 96.847177 250.350403 80.98368 262.044994 69.289089  C 273.739586 57.594497 289.603082 51.023622 306.141732 51.023622  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-A3">
+    <ns0:path d="M 453.543307 51.023622  C 470.081957 51.023622 485.945453 57.594497 497.640045 69.289089  C 509.334637 80.98368 515.905512 96.847177 515.905512 113.385827  C 515.905512 129.924477 509.334637 145.787973 497.640045 157.482565  C 485.945453 169.177156 470.081957 175.748031 453.543307 175.748031  C 437.004657 175.748031 421.141161 169.177156 409.446569 157.482565  C 397.751978 145.787973 391.181102 129.924477 391.181102 113.385827  C 391.181102 96.847177 397.751978 80.98368 409.446569 69.289089  C 421.141161 57.594497 437.004657 51.023622 453.543307 51.023622  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-A4">
+    <ns0:path d="M 600.944882 51.023622  C 617.483532 51.023622 633.347028 57.594497 645.04162 69.289089  C 656.736211 80.98368 663.307087 96.847177 663.307087 113.385827  C 663.307087 129.924477 656.736211 145.787973 645.04162 157.482565  C 633.347028 169.177156 617.483532 175.748031 600.944882 175.748031  C 584.406232 175.748031 568.542736 169.177156 556.848144 157.482565  C 545.153552 145.787973 538.582677 129.924477 538.582677 113.385827  C 538.582677 96.847177 545.153552 80.98368 556.848144 69.289089  C 568.542736 57.594497 584.406232 51.023622 600.944882 51.023622  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-B1">
+    <ns0:path d="M 158.740157 198.425197  C 175.278807 198.425197 191.142304 204.996072 202.836895 216.690664  C 214.531487 228.385255 221.102362 244.248752 221.102362 260.787402  C 221.102362 277.326052 214.531487 293.189548 202.836895 304.884139  C 191.142304 316.578731 175.278807 323.149606 158.740157 323.149606  C 142.201507 323.149606 126.338011 316.578731 114.64342 304.884139  C 102.948828 293.189548 96.377953 277.326052 96.377953 260.787402  C 96.377953 244.248752 102.948828 228.385255 114.64342 216.690664  C 126.338011 204.996072 142.201507 198.425197 158.740157 198.425197  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-B2">
+    <ns0:path d="M 306.141732 198.425197  C 322.680382 198.425197 338.543879 204.996072 350.23847 216.690664  C 361.933062 228.385255 368.503937 244.248752 368.503937 260.787402  C 368.503937 277.326052 361.933062 293.189548 350.23847 304.884139  C 338.543879 316.578731 322.680382 323.149606 306.141732 323.149606  C 289.603082 323.149606 273.739586 316.578731 262.044994 304.884139  C 250.350403 293.189548 243.779528 277.326052 243.779528 260.787402  C 243.779528 244.248752 250.350403 228.385255 262.044994 216.690664  C 273.739586 204.996072 289.603082 198.425197 306.141732 198.425197  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-B3">
+    <ns0:path d="M 453.543307 198.425197  C 470.081957 198.425197 485.945453 204.996072 497.640045 216.690664  C 509.334637 228.385255 515.905512 244.248752 515.905512 260.787402  C 515.905512 277.326052 509.334637 293.189548 497.640045 304.884139  C 485.945453 316.578731 470.081957 323.149606 453.543307 323.149606  C 437.004657 323.149606 421.141161 316.578731 409.446569 304.884139  C 397.751978 293.189548 391.181102 277.326052 391.181102 260.787402  C 391.181102 244.248752 397.751978 228.385255 409.446569 216.690664  C 421.141161 204.996072 437.004657 198.425197 453.543307 198.425197  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-B4">
+    <ns0:path d="M 600.944882 198.425197  C 617.483532 198.425197 633.347028 204.996072 645.04162 216.690664  C 656.736211 228.385255 663.307087 244.248752 663.307087 260.787402  C 663.307087 277.326052 656.736211 293.189548 645.04162 304.884139  C 633.347028 316.578731 617.483532 323.149606 600.944882 323.149606  C 584.406232 323.149606 568.542736 316.578731 556.848144 304.884139  C 545.153552 293.189548 538.582677 277.326052 538.582677 260.787402  C 538.582677 244.248752 545.153552 228.385255 556.848144 216.690664  C 568.542736 204.996072 584.406232 198.425197 600.944882 198.425197  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-C1">
+    <ns0:path d="M 158.740157 345.826772  C 175.278807 345.826772 191.142304 352.397647 202.836895 364.092239  C 214.531487 375.78683 221.102362 391.650326 221.102362 408.188976  C 221.102362 424.727626 214.531487 440.591123 202.836895 452.285714  C 191.142304 463.980306 175.278807 470.551181 158.740157 470.551181  C 142.201507 470.551181 126.338011 463.980306 114.64342 452.285714  C 102.948828 440.591123 96.377953 424.727626 96.377953 408.188976  C 96.377953 391.650326 102.948828 375.78683 114.64342 364.092239  C 126.338011 352.397647 142.201507 345.826772 158.740157 345.826772  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-C2">
+    <ns0:path d="M 306.141732 345.826772  C 322.680382 345.826772 338.543879 352.397647 350.23847 364.092239  C 361.933062 375.78683 368.503937 391.650326 368.503937 408.188976  C 368.503937 424.727626 361.933062 440.591123 350.23847 452.285714  C 338.543879 463.980306 322.680382 470.551181 306.141732 470.551181  C 289.603082 470.551181 273.739586 463.980306 262.044994 452.285714  C 250.350403 440.591123 243.779528 424.727626 243.779528 408.188976  C 243.779528 391.650326 250.350403 375.78683 262.044994 364.092239  C 273.739586 352.397647 289.603082 345.826772 306.141732 345.826772  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-C3">
+    <ns0:path d="M 453.543307 345.826772  C 470.081957 345.826772 485.945453 352.397647 497.640045 364.092239  C 509.334637 375.78683 515.905512 391.650326 515.905512 408.188976  C 515.905512 424.727626 509.334637 440.591123 497.640045 452.285714  C 485.945453 463.980306 470.081957 470.551181 453.543307 470.551181  C 437.004657 470.551181 421.141161 463.980306 409.446569 452.285714  C 397.751978 440.591123 391.181102 424.727626 391.181102 408.188976  C 391.181102 391.650326 397.751978 375.78683 409.446569 364.092239  C 421.141161 352.397647 437.004657 345.826772 453.543307 345.826772  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="well-C4">
+    <ns0:path d="M 600.944882 345.826772  C 617.483532 345.826772 633.347028 352.397647 645.04162 364.092239  C 656.736211 375.78683 663.307087 391.650326 663.307087 408.188976  C 663.307087 424.727626 656.736211 440.591123 645.04162 452.285714  C 633.347028 463.980306 617.483532 470.551181 600.944882 470.551181  C 584.406232 470.551181 568.542736 463.980306 556.848144 452.285714  C 545.153552 440.591123 538.582677 424.727626 538.582677 408.188976  C 538.582677 391.650326 545.153552 375.78683 556.848144 364.092239  C 568.542736 352.397647 584.406232 345.826772 600.944882 345.826772  z " clip-path="url(#p0b0e407116)" style="fill: #ffffff; stroke: #8495aa; stroke-width: 0.85; stroke-linejoin: miter" />
+   </ns0:g>
+   <ns0:g id="scale-bar">
+    <ns0:path d="M 663.307087 495.04252  L 720 495.04252  " clip-path="url(#p0b0e407116)" style="fill: none; stroke: #243247; stroke-width: 1.2" />
+   </ns0:g>
+   <ns0:g id="scale-bar-tick-left">
+    <ns0:path d="M 663.307087 491.640945  L 663.307087 498.444094  " clip-path="url(#p0b0e407116)" style="fill: none; stroke: #243247; stroke-width: 1.2" />
+   </ns0:g>
+   <ns0:g id="scale-bar-tick-right">
+    <ns0:path d="M 720 491.640945  L 720 498.444094  " clip-path="url(#p0b0e407116)" style="fill: none; stroke: #243247; stroke-width: 1.2" />
+   </ns0:g>
+   <ns0:g id="coordinate-row-A">
+    <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="56.692913" y="117.518327" transform="rotate(-0 56.692913 117.518327)">A</ns0:text>
+   </ns0:g>
+   <ns0:g id="coordinate-row-B">
+    <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="56.692913" y="264.919902" transform="rotate(-0 56.692913 264.919902)">B</ns0:text>
+   </ns0:g>
+   <ns0:g id="coordinate-row-C">
+    <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="56.692913" y="412.321476" transform="rotate(-0 56.692913 412.321476)">C</ns0:text>
+   </ns0:g>
+   <ns0:g id="coordinate-column-1">
+    <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="158.740157" y="38.148248" transform="rotate(-0 158.740157 38.148248)">1</ns0:text>
+   </ns0:g>
+   <ns0:g id="coordinate-column-2">
+    <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="306.141732" y="38.148248" transform="rotate(-0 306.141732 38.148248)">2</ns0:text>
+   </ns0:g>
+   <ns0:g id="coordinate-column-3">
+    <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="453.543307" y="38.148248" transform="rotate(-0 453.543307 38.148248)">3</ns0:text>
+   </ns0:g>
+   <ns0:g id="coordinate-column-4">
+    <ns0:text style="font-weight: 700; font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="600.944882" y="38.148248" transform="rotate(-0 600.944882 38.148248)">4</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-A1">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="158.740157" y="117.518327" transform="rotate(-0 158.740157 117.518327)">A1</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-A2">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="306.141732" y="117.518327" transform="rotate(-0 306.141732 117.518327)">A2</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-A3">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="453.543307" y="117.518327" transform="rotate(-0 453.543307 117.518327)">A3</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-A4">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="600.944882" y="117.518327" transform="rotate(-0 600.944882 117.518327)">A4</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-B1">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="158.740157" y="264.919902" transform="rotate(-0 158.740157 264.919902)">B1</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-B2">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="306.141732" y="264.919902" transform="rotate(-0 306.141732 264.919902)">B2</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-B3">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="453.543307" y="264.919902" transform="rotate(-0 453.543307 264.919902)">B3</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-B4">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="600.944882" y="264.919902" transform="rotate(-0 600.944882 264.919902)">B4</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-C1">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="158.740157" y="412.321476" transform="rotate(-0 158.740157 412.321476)">C1</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-C2">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="306.141732" y="412.321476" transform="rotate(-0 306.141732 412.321476)">C2</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-C3">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="453.543307" y="412.321476" transform="rotate(-0 453.543307 412.321476)">C3</ns0:text>
+   </ns0:g>
+   <ns0:g id="label-C4">
+    <ns0:text style="font-size: 16px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #172b42" x="600.944882" y="412.321476" transform="rotate(-0 600.944882 412.321476)">C4</ns0:text>
+   </ns0:g>
+   <ns0:g id="scale-bar-label">
+    <ns0:text style="font-size: 8px; font-family: 'Arial Unicode MS'; text-anchor: middle; fill: #243247" x="691.653543" y="487.972943" transform="rotate(-0 691.653543 487.972943)">10 mm</ns0:text>
+   </ns0:g>
+  </ns0:g>
+ </ns0:g>
+ <ns0:defs>
+  <ns0:clipPath id="p0b0e407116">
+   <ns0:rect x="0" y="0" width="759.685039" height="521.574803" />
+  </ns0:clipPath>
+ </ns0:defs>
+</ns0:svg>
