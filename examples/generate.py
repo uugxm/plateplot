@@ -62,7 +62,6 @@ def main():
         label_fields=["well"],
         color_by="none",
         show_legend=False,
-        title="96-well cell culture plate - Nunc 167008 / 161093",
     )
     print(f"Synthetic examples generated in {figures}")
 

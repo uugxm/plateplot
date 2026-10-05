@@ -53,3 +53,15 @@ def test_cli_default_is_nunc_cell_culture_plate(tmp_path, capsys):
     assert "Outline simplified" in capsys.readouterr().err
     assert main(["draw", "--template", "generic-96", "--output", str(output)]) == 0
     assert "Illustrative" in capsys.readouterr().err
+
+
+def test_cli_metadata_is_opt_in(tmp_path):
+    from pypdf import PdfReader
+
+    path = tmp_path / "plate.pdf"
+    assert main(["draw", "--output", str(path)]) == 0
+    assert "Nunc 167008" not in PdfReader(path).pages[0].extract_text()
+    assert main(["draw", "--output", str(path), "--show-title", "--show-parameters"]) == 0
+    text = PdfReader(path).pages[0].extract_text()
+    assert "Nunc 167008" in text
+    assert "6.97" in text

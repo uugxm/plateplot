@@ -67,7 +67,7 @@ def test_physical_geometry_in_svg(tmp_path, scale, name):
 
 
 def test_manufacturer_outline_notice_is_visible(tmp_path):
-    result = draw_plate("nunc-167008", output=tmp_path / "plate.svg")
+    result = draw_plate("nunc-167008", output=tmp_path / "plate.svg", show_parameters=True)
     root = ET.parse(result.path).getroot()
     assert "simplified outline" in " ".join(root.itertext())
     assert any("Outline simplified" in notice for notice in result.notices)
@@ -80,9 +80,34 @@ def test_default_draw_numbers_every_well(tmp_path):
     for well in load_template("nunc-167008").wells():
         assert node(root, f"well-{well}") is not None
         assert well in "".join(node(root, f"label-{well}").itertext())
-    assert "Nunc 167008" in " ".join(root.itertext())
+    assert "Nunc 167008" not in " ".join(e.text or "" for e in root.findall(f".//{SVG}text"))
     x0, _, x1, _ = bounds(root, "well-A1")
     assert x1 - x0 == pytest.approx(6.97 * 72 / 25.4 * result.scale, abs=1e-5)
+
+
+@pytest.mark.parametrize(
+    "show_title,show_parameters", [(False, False), (True, False), (False, True), (True, True)]
+)
+def test_optional_title_and_parameters(tmp_path, show_title, show_parameters):
+    result = draw_plate(
+        output=tmp_path / "clean.pdf", show_title=show_title, show_parameters=show_parameters
+    )
+    page = PdfReader(result.path).pages[0]
+    text = page.extract_text()
+    assert ("Nunc 167008" in text) == show_title
+    assert ("6.97" in text) == show_parameters
+    assert ("simplified outline" in text) == show_parameters
+    if not show_title and not show_parameters:
+        assert result.width_mm / result.scale == pytest.approx(127.76 + 6)
+        assert result.height_mm / result.scale == pytest.approx(85.48 + 6)
+    assert "nunc-167008" in PdfReader(result.path).metadata.subject
+
+
+def test_explicit_custom_title_is_shown(tmp_path):
+    result = draw_plate(output=tmp_path / "title.pdf", title="Experiment 1")
+    text = PdfReader(result.path).pages[0].extract_text()
+    assert "Experiment 1" in text
+    assert "well diameter" not in text
 
 
 @pytest.mark.parametrize("position", ["inside", "outside"])

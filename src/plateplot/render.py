@@ -215,6 +215,8 @@ def draw_plate(
     mode: str = "annotation",
     scale: float | None = None,
     title: str | None = None,
+    show_title: bool = False,
+    show_parameters: bool = False,
     palette: Mapping[str, str] | None = None,
     empty_color: str = "#FFFFFF",
     cmap: str = "viridis",
@@ -232,6 +234,7 @@ def draw_plate(
 
     The default 96-well cell culture plate is Nunc 167008 (161093 shares its geometry).
     Row/column coordinates default to 12 pt inside the plate's left/top margins.
+    Plate title and parameters are hidden unless requested; an explicit title is shown.
     ``physical`` fixes scale=1; ``annotation`` defaults to scale=2 (3 for 384).
     Explicit fill colors override automatic group/concentration colors.
     Overlong labels raise by default. ``overflow='warn'`` omits the entire label.
@@ -293,17 +296,30 @@ def draw_plate(
         labels[well] = "\n".join(line for line in lines if line)
     fills, legend, scale_info = _colors(records, color_by, palette, empty_color, cmap)
     font = _font(font_path)
+    show_title = show_title or title is not None
     title = (template.name or f"{template.well_count}-well plate") if title is None else title
     if not isinstance(title, str):
         raise ValueError("title must be text")
     # Wrapping legend text reserves sufficient page height before any artwork is drawn.
-    left, right, top = 12.0, 16.0 if show_dimensions else 8.0, 23.0
+    left = 12.0 if coordinate_position == "outside" else 3.0
+    right = 16.0 if show_dimensions else 3.0
+    if show_title:
+        top = 23.0 if show_parameters else 15.0
+    elif show_parameters:
+        top = 12.0
+    else:
+        top = 8.0 if coordinate_position == "outside" else 3.0
     width = template.width_mm + left + right
     legend_columns = max(1, min(3, int(template.width_mm / 35)))
     legend_rows = math.ceil(len(legend) / legend_columns) if show_legend else 0
     legend_height = legend_rows * 9
     colorbar_height = 17 if show_legend and scale_info else 0
-    bottom = 16 + legend_height + colorbar_height + (7 if show_dimensions else 0)
+    bottom = (
+        (16 if show_parameters or legend_rows or colorbar_height else 3)
+        + legend_height
+        + colorbar_height
+        + (7 if show_dimensions else 0)
+    )
     height = template.height_mm + top + bottom
     notices = []
     if template.source.kind == "illustrative":
@@ -323,9 +339,9 @@ def draw_plate(
     )
     _check_glyphs(
         [
-            title,
-            subtitle,
-            footer,
+            title if show_title else "",
+            subtitle if show_parameters else "",
+            footer if show_parameters else "",
             *labels.values(),
             *(label for label, _ in legend),
             scale_info[2] if scale_info else "",
@@ -351,8 +367,24 @@ def draw_plate(
         ax.set_aspect("equal", adjustable="box")
         ax.set_axis_off()
         renderer = canvas.get_renderer()
-        _text(ax, 0, -16, title, font, size=14, ha="left", weight="bold")
-        _text(ax, 0, -10, subtitle, font, size=7, ha="left")
+        metadata_artists = []
+        if show_title:
+            metadata_artists.append(
+                _text(
+                    ax,
+                    0,
+                    -16 if show_parameters else -7,
+                    title,
+                    font,
+                    size=14,
+                    ha="left",
+                    weight="bold",
+                )
+            )
+        if show_parameters:
+            metadata_artists.append(
+                _text(ax, 0, -10 if show_title else -5, subtitle, font, size=7, ha="left")
+            )
         outline = FancyBboxPatch(
             (0, 0),
             template.width_mm,
@@ -525,12 +557,22 @@ def draw_plate(
                         "Legend label is too long; shorten group names or increase scale"
                     )
                 _text(ax, x + 4, y, text, font, size=6, ha="left")
-        footer_artist = _text(
-            ax, 0, template.height_mm + bottom - 4, footer, font, size=6, ha="left", color="#59708A"
-        )
+        if show_parameters:
+            metadata_artists.append(
+                _text(
+                    ax,
+                    0,
+                    template.height_mm + bottom - 4,
+                    footer,
+                    font,
+                    size=6,
+                    ha="left",
+                    color="#59708A",
+                )
+            )
         # Titles / provenance must also fit instead of silently clipping outside the page.
         canvas.draw()
-        for artist in [footer_artist, *ax.texts[:2]]:
+        for artist in metadata_artists:
             box = artist.get_window_extent(renderer=renderer)
             if box.x1 > fig.bbox.width - 4 or box.x0 < 0:
                 raise ValueError(

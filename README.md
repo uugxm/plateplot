@@ -22,7 +22,7 @@ plateplot draw --template 96 --data examples/samples-96.csv --output output/plat
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
-仓库当前版本为 `0.1.0a4`。初始 PR 合并前，默认分支只包含初始化文件。
+仓库当前版本为 `0.1.0a5`。初始 PR 合并前，默认分支只包含初始化文件。
 
 默认使用 Nunc 167008 96 孔细胞培养板（161093 同尺寸）。画带孔位编号的空板：
 
@@ -31,6 +31,11 @@ plateplot draw --labels well --color-by none --no-legend --output output/blank.s
 ```
 
 Python 也可以省略板型：`draw_plate(output="blank.svg", label_fields=["well"])`。
+
+默认不在图中输出板名、尺寸参数或底部模板说明，并收紧外围留白。
+使用 `--show-title` / `--show-parameters` 显示这些信息；Python 参数为
+`show_title=True` / `show_parameters=True`。显式传入 `--title` / `title` 会显示自定义标题。
+模板来源仍保留在文件元数据和 CLI 提示中；`--dimensions` 可独立显示尺寸标注。
 
 行列编号默认放在板框内，字号为 12 pt（原为 7 pt）。用 `--coordinate-font-size`
 调整编号大小，`--coordinate-position outside` 放回框外；Python 参数分别是
@@ -82,7 +87,8 @@ plateplot blank-csv 384 samples.csv
 ## 尺寸模板
 
 **内置 `generic-*` 模板均为示意尺寸，不代表某个厂家或货号。**
-输出图底部及 CLI 会标明 `Illustrative`。实际尺寸图请使用厂家图纸或实测数据建立模板。
+CLI 会提示 `Illustrative`，使用 `--show-parameters` 时图底也会标明。
+实际尺寸图请使用厂家图纸或实测数据建立模板。
 同样孔数的产品，孔径、边缘距离等不一定相同。
 
 已加入常用 **Thermo Scientific Nunc 167008 / 161093** 的厂家尺寸模板：
@@ -94,7 +100,8 @@ plateplot draw --template nunc-161093 --output output/nunc-1to1.pdf --mode physi
 
 两个货号使用同一份尺寸图纸：孔口 6.97 mm、孔底 6.17 mm、孔距 9 mm，
 A1 中心距左边 14.3 mm、上边 11.18 mm。上边距由图纸的 **H 行到底边 11.3 mm**
-换算而来，未使用上下对称假设。外框圆角/缺角做示意简化，输出会明确提示。
+换算而来，未使用上下对称假设。外框圆角/缺角做示意简化，CLI 会提示，
+使用 `--show-parameters` 时图底也会显示。
 图纸来源、SHA-256、尺寸公差和推导详见 [Nunc 96 孔模板说明](docs/nunc-96.md)。
 省略绘图板型、选择数字 `96` 或别名 `cell-culture-96` 均使用 `nunc-167008`。
 选择 `nunc-161093` 可记录另一货号；通用 96 孔示意模板需显式选择 `generic-96`。
@@ -145,7 +152,7 @@ plateplot draw --template 384 --data examples/samples-384.csv \
 
 - `annotation`：默认整体放大 2 倍，384 孔放大 3 倍，可指定 `--scale`。
 - `physical`：固定 1:1；加 `--dimensions` 显示外框尺寸。
-  PDF 的页面包含外围标题、行列号和图例，但板子本身按模板毫米尺寸绘制。
+  PDF 页面按选项包含行列号、图例或标题，板子本身按模板毫米尺寸绘制。
 - SVG 明确设置毫米页面尺寸；PDF 明确设置物理页面尺寸。打印时选择 **实际大小 / 100%**，
   关闭“适应页面”。
 - 当前支持圆孔和圆角矩形外框的俯视示意；厂家定位缺角、筋条、孔壁及三维结构不在第一版中。

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0a5 - 2026-10-05
+
+- Hide automatic plate names, geometry summaries and provenance footers by default.
+- Add show-title / show-parameters options and remove unused header/footer whitespace.
+- Keep geometry provenance in file metadata and notices; explicit custom titles still display.
+
 ## 0.1.0a4 - 2026-10-05
 
 - Move row/column coordinates inside the plate by default and enlarge them from 7 to 12 pt.

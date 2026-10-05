@@ -39,6 +39,10 @@ def parser() -> argparse.ArgumentParser:
     draw.add_argument("--mode", default="annotation", choices=["annotation", "physical"])
     draw.add_argument("--scale", type=float)
     draw.add_argument("--title")
+    draw.add_argument("--show-title", action="store_true", help="Show the plate name")
+    draw.add_argument(
+        "--show-parameters", action="store_true", help="Show geometry and template information"
+    )
     draw.add_argument("--palette", type=Path, help="JSON mapping group names to colors")
     draw.add_argument("--cmap", default="viridis")
     draw.add_argument("--font-size", type=float, default=9)
@@ -97,6 +101,8 @@ def main(argv: list[str] | None = None) -> int:
                 mode=arguments.mode,
                 scale=arguments.scale,
                 title=arguments.title,
+                show_title=arguments.show_title,
+                show_parameters=arguments.show_parameters,
                 palette=palette,
                 cmap=arguments.cmap,
                 font_size=arguments.font_size,

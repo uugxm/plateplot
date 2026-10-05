@@ -51,7 +51,8 @@ right_center_margin = 127.76 - 113.3 = 14.46
 
 外框使用图纸的板底 footprint 尺寸。图纸显示圆角、内台阶、定位/模具标记及局部倒角，
 但本模板不从图片像素比例推算这些轮廓。`corner_radius_mm=0` 是绘图简化值，
-并不声称实物圆角半径为零；`outline_simplified=true` 会在图底和 CLI 中提示。
+并不声称实物圆角半径为零；`outline_simplified=true` 会在 CLI 中提示，
+开启 `--show-parameters` / `show_parameters=True` 时也会显示在图底。
 页脚未定义半径 R0.20 mm 没有用于推断肉眼可见的整体外框圆角。
 
 俯视填色圆使用孔口内径 6.97 mm，孔底内径、孔外径、板高及孔深作为独立元数据保存。
