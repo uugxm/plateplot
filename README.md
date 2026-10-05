@@ -8,10 +8,10 @@
 
 ## 安装与快速使用
 
-需要 Python 3.10 或以上。初始 PR 合并前，使用实现分支：
+需要 Python 3.10 或以上：
 
 ```bash
-git clone --branch codex/initial-implementation https://github.com/uugxm/plateplot.git
+git clone https://github.com/uugxm/plateplot.git
 cd plateplot
 python -m venv .venv
 source .venv/bin/activate
@@ -22,7 +22,7 @@ plateplot draw --template 96 --data examples/samples-96.csv --output output/plat
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
-仓库当前版本为 `0.1.0a9`。初始 PR 合并前，默认分支只包含初始化文件。
+仓库当前版本为 `0.1.0a9`。
 
 默认使用 Nunc 167008 96 孔细胞培养板（161093 同尺寸）。画带孔位编号的空板：
 
