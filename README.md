@@ -22,7 +22,15 @@ plateplot draw --template 96 --data examples/samples-96.csv --output output/plat
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
-仓库当前版本为 `0.1.0a2`。初始 PR 合并前，默认分支只包含初始化文件。
+仓库当前版本为 `0.1.0a3`。初始 PR 合并前，默认分支只包含初始化文件。
+
+默认使用 Nunc 167008 96 孔细胞培养板（161093 同尺寸）。画带孔位编号的空板：
+
+```bash
+plateplot draw --labels well --color-by none --no-legend --output output/blank.svg
+```
+
+Python 也可以省略板型：`draw_plate(output="blank.svg", label_fields=["well"])`。
 
 ## Python API
 
@@ -30,7 +38,7 @@ Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
 from plateplot import draw_plate
 
 result = draw_plate(
-    template=96,  # 内置板型，或自定义 JSON 文件路径
+    template=96,  # 默认 Nunc 167008；也可用其他板型或自定义 JSON 文件路径
     data="examples/samples-96.csv",  # 也可使用 WellData 或字典的列表
     output="output/plate.svg",
     label_fields=["sample_name", "concentration"],
@@ -83,7 +91,9 @@ plateplot draw --template nunc-161093 --output output/nunc-1to1.pdf --mode physi
 A1 中心距左边 14.3 mm、上边 11.18 mm。上边距由图纸的 **H 行到底边 11.3 mm**
 换算而来，未使用上下对称假设。外框圆角/缺角做示意简化，输出会明确提示。
 图纸来源、SHA-256、尺寸公差和推导详见 [Nunc 96 孔模板说明](docs/nunc-96.md)。
-选择数字 `96` 仍对应通用示意模板；使用具体货号选择厂家模板。
+省略绘图板型、选择数字 `96` 或别名 `cell-culture-96` 均使用 `nunc-167008`。
+选择 `nunc-161093` 可记录另一货号；通用 96 孔示意模板需显式选择 `generic-96`。
+数字 `12`、`24`、`48`、`384` 仍对应各自通用示意模板。
 
 所有长度统一为 **mm**，左上角为坐标原点，A1 在左上方。模板包含板宽、板高、
 孔口直径、A1 中心距左/上板边的距离、横/纵孔中心距和圆角半径。
@@ -153,7 +163,8 @@ ruff format --check .
 python -m build
 ```
 
-示例包括五种通用板型、96 孔 PDF、1:1 SVG、浓度填色 SVG，以及两款 Nunc 厂家模板。
+示例包括四种通用板型、默认 Nunc 96 孔板、带孔位编号的空板、96 孔 PDF、
+1:1 SVG、浓度填色 SVG，以及两款 Nunc 厂家模板。
 测试核对输出文件中的几何尺寸、孔位数、SVG 文字/路径选项、矢量输出、CSV 校验和 CLI。
 CI 在 Python 3.10 / 3.12 上运行。
 

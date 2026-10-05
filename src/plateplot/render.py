@@ -206,7 +206,7 @@ def _contrast(color):
 
 
 def draw_plate(
-    template: str | int | Path | PlateTemplate,
+    template: str | int | Path | PlateTemplate = 96,
     data: str | Path | Iterable[WellData | Mapping] | None = None,
     *,
     output: str | Path,
@@ -228,6 +228,7 @@ def draw_plate(
 ) -> RenderResult:
     """Draw all wells; atomic SVG/PDF export with preserved physical geometry.
 
+    The default 96-well cell culture plate is Nunc 167008 (161093 shares its geometry).
     ``physical`` fixes scale=1; ``annotation`` defaults to scale=2 (3 for 384).
     Explicit fill colors override automatic group/concentration colors.
     Overlong labels raise by default. ``overflow='warn'`` omits the entire label.

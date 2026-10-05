@@ -23,7 +23,11 @@ def parser() -> argparse.ArgumentParser:
     blank.add_argument("template")
     blank.add_argument("output", type=Path)
     draw = commands.add_parser("draw", help="Draw an SVG or PDF")
-    draw.add_argument("--template", required=True, help="12/24/48/96/384, name, or JSON file")
+    draw.add_argument(
+        "--template",
+        default="96",
+        help="12/24/48/96/384, name, or JSON file (default: 96 = Nunc 167008)",
+    )
     draw.add_argument("--data", type=Path, help="CSV file; omitted for a blank plate")
     draw.add_argument("--output", required=True, type=Path)
     draw.add_argument(

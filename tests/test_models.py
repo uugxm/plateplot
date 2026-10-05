@@ -17,7 +17,7 @@ from plateplot.models import normalize_well, row_name
     ],
 )
 def test_builtins(count, rows, columns, last):
-    template = load_template(count)
+    template = load_template(f"generic-{count}")
     assert (template.rows, template.columns) == (rows, columns)
     assert template.wells()[0] == "A1"
     assert template.wells()[-1] == last
@@ -26,6 +26,18 @@ def test_builtins(count, rows, columns, last):
     x, y = template.center("B02")
     assert x == pytest.approx(template.a1_x_mm + template.pitch_x_mm)
     assert y == pytest.approx(template.a1_y_mm + template.pitch_y_mm)
+
+
+@pytest.mark.parametrize("alias", [96, "96", "cell-culture-96"])
+def test_default_96_cell_culture_template(alias):
+    assert load_template(alias) == load_template("nunc-167008")
+    assert load_template("generic-96").source.kind == "illustrative"
+    assert load_template("generic-96").well_diameter_mm == 6.4
+
+
+@pytest.mark.parametrize("count", [12, 24, 48, 384])
+def test_other_numeric_templates_are_generic(count):
+    assert load_template(count) == load_template(f"generic-{count}")
 
 
 def test_template_roundtrip(tmp_path):

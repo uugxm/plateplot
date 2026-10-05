@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0a3 - 2026-10-05
+
+- Make Nunc 167008 the default 96-well cell culture plate for Python and CLI drawing.
+- Resolve 96 / cell-culture-96 to Nunc; preserve explicit generic-96 and other plate sizes.
+- Add a reproducible blank plate diagram with A1–H12 well addresses.
+
 ## 0.1.0a2 - 2026-10-05
 
 - Add Nunc 167008 / 161093 templates from supplied drawing 2817 version 10.

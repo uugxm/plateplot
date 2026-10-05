@@ -38,7 +38,7 @@ def test_all_wells_vector_and_editable_text(tmp_path, count):
 
 
 @pytest.mark.parametrize("scale", [1, 2.5])
-@pytest.mark.parametrize("name", [96, "nunc-167008", "nunc-161093"])
+@pytest.mark.parametrize("name", ["generic-96", "nunc-167008", "nunc-161093"])
 def test_physical_geometry_in_svg(tmp_path, scale, name):
     template = load_template(name)
     result = draw_plate(
@@ -72,6 +72,17 @@ def test_manufacturer_outline_notice_is_visible(tmp_path):
     assert "simplified outline" in " ".join(root.itertext())
     assert any("Outline simplified" in notice for notice in result.notices)
     assert not any("Illustrative" in notice for notice in result.notices)
+
+
+def test_default_draw_numbers_every_well(tmp_path):
+    result = draw_plate(output=tmp_path / "default.svg", label_fields=["well"], color_by="none")
+    root = ET.parse(result.path).getroot()
+    for well in load_template("nunc-167008").wells():
+        assert node(root, f"well-{well}") is not None
+        assert well in "".join(node(root, f"label-{well}").itertext())
+    assert "Nunc 167008" in " ".join(root.itertext())
+    x0, _, x1, _ = bounds(root, "well-A1")
+    assert x1 - x0 == pytest.approx(6.97 * 72 / 25.4 * result.scale, abs=1e-5)
 
 
 def test_pdf_scale_and_no_raster_images(tmp_path):

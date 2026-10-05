@@ -44,3 +44,12 @@ def test_cli_error_is_concise(tmp_path, capsys):
     message = capsys.readouterr().err
     assert "Output must end in .svg or .pdf" in message
     assert "Traceback" not in message
+
+
+def test_cli_default_is_nunc_cell_culture_plate(tmp_path, capsys):
+    output = tmp_path / "default.svg"
+    assert main(["draw", "--output", str(output), "--labels", "well"]) == 0
+    assert "Nunc 167008" in output.read_text()
+    assert "Outline simplified" in capsys.readouterr().err
+    assert main(["draw", "--template", "generic-96", "--output", str(output)]) == 0
+    assert "Illustrative" in capsys.readouterr().err

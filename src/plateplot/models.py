@@ -216,7 +216,9 @@ def load_template(value: str | int | Path | PlateTemplate) -> PlateTemplate:
     if isinstance(value, PlateTemplate):
         return value
     name = str(value)
-    if name.isdigit():
+    if name in {"96", "cell-culture-96"}:
+        name = "nunc-167008"
+    elif name.isdigit():
         name = f"generic-{name}"
     if name in list_templates():
         text = files("plateplot").joinpath("templates", name + ".json").read_text(encoding="utf-8")
