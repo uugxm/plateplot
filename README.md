@@ -22,7 +22,7 @@ plateplot draw --template 96 --data examples/samples-96.csv --output output/plat
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\activate`。
-仓库当前版本为 `0.1.0a8`。初始 PR 合并前，默认分支只包含初始化文件。
+仓库当前版本为 `0.1.0a9`。初始 PR 合并前，默认分支只包含初始化文件。
 
 默认使用 Nunc 167008 96 孔细胞培养板（161093 同尺寸）。画带孔位编号的空板：
 
@@ -90,6 +90,15 @@ plateplot blank-csv 384 samples.csv
 ```
 
 ## 尺寸模板
+
+新增 Nunc **150628（12 孔）示意模板**，显式选择 `cell-culture-12`：
+
+```bash
+plateplot draw --template cell-culture-12 --labels well --font-size 16 --output output/twelve.svg
+```
+
+厂家目录外形为 128×86 mm；孔径 22 mm、孔距 26 mm 与居中 A1=(25,17) mm
+均为示意假设，未由厂家图纸确认。来源保持 `illustrative`，详见 [12 孔说明](docs/nunc-12.md)。
 
 新增 Nunc **140675（6 孔）**、**142485 / 144530（24 孔）** 模板，沿用当前样式：
 
@@ -193,7 +202,7 @@ python -m build
 ```
 
 示例包括四种通用板型、默认 Nunc 96 孔板、带孔位编号的空板、96 孔 PDF、
-1:1 SVG、浓度填色 SVG、两款 Nunc 96 孔厂家模板，以及新增的 6/24 孔空板 SVG/PDF。
+1:1 SVG、浓度填色 SVG、两款 Nunc 96 孔厂家模板，以及新增的 6/12/24 孔空板 SVG/PDF。
 测试核对输出文件中的几何尺寸、孔位数、SVG 文字/路径选项、矢量输出、CSV 校验和 CLI。
 CI 在 Python 3.10 / 3.12 上运行。
 

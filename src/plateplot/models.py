@@ -240,6 +240,7 @@ def load_template(value: str | int | Path | PlateTemplate) -> PlateTemplate:
         "cell-culture-96": "nunc-167008",
         "6": "nunc-140675-schematic",
         "cell-culture-6": "nunc-140675-schematic",
+        "cell-culture-12": "nunc-150628-schematic",
         "cell-culture-24": "nunc-142485",
     }
     if name in aliases:

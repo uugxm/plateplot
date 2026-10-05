@@ -63,7 +63,11 @@ def main():
         color_by="none",
         show_legend=False,
     )
-    for count, template in [(6, "nunc-140675-schematic"), (24, "nunc-142485")]:
+    for count, template in [
+        (6, "nunc-140675-schematic"),
+        (12, "nunc-150628-schematic"),
+        (24, "nunc-142485"),
+    ]:
         for extension in ("svg", "pdf"):
             draw_plate(
                 template,

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0a9 - 2026-10-05
+
+- Add user-authorized Nunc 150628 twelve-well schematic and SVG/PDF examples.
+- Use catalog nominal 128x86 mm outline; explicitly record illustrative diameter, pitch and centered grid.
+- Keep source kind illustrative, add cell-culture-12 alias, and retain generic-12 for numeric 12.
+
 ## 0.1.0a8 - 2026-10-05
 
 - Add Nunc 140675 six-well and 142485 / 144530 twenty-four-well templates and blank SVG/PDF examples.

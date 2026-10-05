@@ -47,6 +47,7 @@ def test_all_wells_vector_and_editable_text(tmp_path, count):
         "nunc-140675-schematic",
         "nunc-142485",
         "nunc-144530",
+        "nunc-150628-schematic",
     ],
 )
 def test_physical_geometry_in_svg(tmp_path, scale, name):
@@ -168,7 +169,13 @@ def test_scale_bar_can_be_hidden_and_rejects_overflow(tmp_path):
 
 
 @pytest.mark.parametrize(
-    "name,count", [("nunc-140675-schematic", 6), ("nunc-142485", 24), ("nunc-144530", 24)]
+    "name,count",
+    [
+        ("nunc-140675-schematic", 6),
+        ("nunc-150628-schematic", 12),
+        ("nunc-142485", 24),
+        ("nunc-144530", 24),
+    ],
 )
 def test_new_plate_style_and_assumption_notices(tmp_path, name, count):
     result = draw_plate(name, output=tmp_path / "plate.svg", label_fields=["well"], font_size=16)

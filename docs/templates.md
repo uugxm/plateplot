@@ -7,6 +7,10 @@
 默认 96 孔细胞培养板为 `nunc-167008`，也可用 `96` / `cell-culture-96` 选择。
 `draw_plate()` 和 CLI `draw` 省略板型时使用此模板；`generic-96` 仍可显式选择。
 
+`cell-culture-12` 选择 `nunc-150628-schematic`，详见 [12 孔示意说明](nunc-12.md)。
+其外形采用厂家目录名义尺寸，孔径/孔距/位置采用明确记录的假设；来源保持
+`illustrative`。数字 `12` 仍选择 `generic-12`。
+
 | 字段 | 意义 |
 |---|---|
 | `schema_version` | 整数 `1` |

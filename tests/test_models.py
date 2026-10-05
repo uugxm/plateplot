@@ -111,6 +111,7 @@ def test_addresses():
         "nunc-140675-schematic",
         "nunc-142485",
         "nunc-144530",
+        "nunc-150628-schematic",
         "nunc-161093",
         "nunc-167008",
     ]
@@ -176,6 +177,32 @@ def test_nunc_6_measured_contours(tmp_path):
     assert template.source.drawing_version == "10-a"
     assert len(template.assumed_fields) == 5
     assert load_template(template.save(tmp_path / "six.json")) == template
+
+
+def test_nunc_12_remains_illustrative_with_preserved_assumptions(tmp_path):
+    template = load_template("cell-culture-12")
+    assert template == load_template("nunc-150628-schematic")
+    assert template.catalog_number == "150628"
+    assert template.source.kind == "illustrative"
+    assert template.source.checked_on == "2026-10-05"
+    assert template.source.url
+    assert (template.rows, template.columns) == (3, 4)
+    assert template.wells()[-1] == "C4"
+    assert (template.width_mm, template.height_mm) == (128, 86)
+    assert set(template.assumed_fields) == {
+        "well_diameter_mm",
+        "pitch_x_mm",
+        "pitch_y_mm",
+        "a1_x_mm",
+        "a1_y_mm",
+    }
+    assert template.center("A1") == pytest.approx((25, 17))
+    assert template.center("C4") == pytest.approx((103, 69))
+    assert template.well_bottom_diameter_mm is None
+    assert template.plate_height_mm is None
+    assert template.well_depth_mm is None
+    assert load_template(template.save(tmp_path / "twelve.json")) == template
+    assert load_template(12).template_id == "generic-12"
 
 
 @pytest.mark.parametrize("catalog", ["142485", "144530"])
